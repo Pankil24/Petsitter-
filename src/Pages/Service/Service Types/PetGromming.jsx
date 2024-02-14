@@ -190,7 +190,7 @@ function PetGromming() {
                 </div>
               </div>
             </div>
-            <ServiceForm serviceType={"dog_fullcare"}/>
+            <ServiceForm serviceType={""}/>
           </div>
         </div>
       </section>
