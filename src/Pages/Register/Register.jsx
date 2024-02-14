@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowRight,
+  faArrowUp,
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -388,8 +389,12 @@ function Register() {
       </footer>
       {/* main-footer end */}
       {/*Scroll to top*/}
-      <button className="scroll-top scroll-to-target" data-target="html">
-        <span className="fa fa-arrow-up" />
+      <button
+        className="scroll-top scroll-to-target"
+        data-target="html"
+        id="arrow"
+      >
+        <FontAwesomeIcon icon={faArrowUp} />
       </button>
     </>
   );

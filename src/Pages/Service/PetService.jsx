@@ -8,36 +8,32 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Header from "../Components/Header";
+import { handleScrollToTop } from "../lib/staticFuntions";
 
 function PetService() {
-  const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.getElementById("myHeader");
-      const arrow = document.getElementById("arrow");
-      const sticky = header.offsetTop;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const header = document.getElementById("myHeader");
+  //     const arrow = document.getElementById("arrow");
+  //     const sticky = header.offsetTop;
 
-      if (window.pageYOffset > sticky) {
-        header.classList.add("fixed-header");
-        arrow.classList.add("open");
-      } else {
-        header.classList.remove("fixed-header");
-        arrow.classList.remove("open");
-      }
-    };
+  //     if (window.pageYOffset > sticky) {
+  //       header.classList.add("fixed-header");
+  //       arrow.classList.add("open");
+  //     } else {
+  //       header.classList.remove("fixed-header");
+  //       arrow.classList.remove("open");
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   // Clean up the event listener
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   return (
     <>
       {/* Mirrored from azim.commonsupport.com/Poopet/service.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2024 13:24:20 GMT */}
@@ -54,321 +50,7 @@ function PetService() {
       <div className="preloader" />
       {/* /.preloader */}
       {/* Main Header */}
-      <header className="main-header" id="myHeader">
-        <div className="page-header-mobile-info">
-          <div className="page-header-mobile-info-content">
-            <div className="header-info clearfix">
-              <ul className="info-list">
-                <li>
-                  <i className="fas fa-map-marker-alt" />
-                  <span>660 Broklyn Street, 88 New York </span>
-                </li>
-                <li>
-                  <i className="fa fa-phone" />
-                  <span>666 888 0000, Fax: +21 000 333</span>
-                </li>
-                <li>
-                  <i className="fa fa-clock" />
-                  <span>Mon - Fri 9:00 am - 6:00 pm</span>
-                </li>
-              </ul>
-              <ul className="social-style-one">
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-instagram" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="toggle-box clearfix">
-            <div className="page-header-mobile-info-toggle" />
-            <div className="link">
-              <a href="contact.html" className="theme-btn">
-                Appointment
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="header-top">
-          <div className="container">
-            <div className="header-info clearfix">
-              <ul className="info-list pull-right">
-                <li>
-                  <i className="flaticon-mail" />
-                  <strong>
-                    <a href="mailto:example@gmail.com">example@gmail.com</a>
-                  </strong>
-                  Email address
-                </li>
-                <li>
-                  <i className="flaticon-phone-call" />
-                  <strong>
-                    <a href="tel:+886668880000">666 888 0000</a>
-                  </strong>
-                  Phone line
-                </li>
-                <li>
-                  <i className="flaticon-clock" />
-                  <strong>Mon - Fri 9:00 am - 6:00 pm</strong>
-                  Working hours
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="header-bottom">
-          <div className="container">
-            <div className="clearfix">
-              <div className="logo-box">
-                <figure className="logo">
-                  <a href="index-2.html">
-                    <img src={`${images?.logo}`} alt="" />
-                  </a>
-                </figure>
-              </div>
-              <div className="nav-outer clearfix">
-                <div className="menu-area">
-                  <nav className="main-menu navbar-expand-lg">
-                    <div className="navbar-header">
-                      {/* Toggle Button */}
-                      <button
-                        type="button"
-                        className="navbar-toggle"
-                        data-toggle="collapse"
-                        data-target=".navbar-collapse"
-                      >
-                        <span className="icon-bar" />
-                        <span className="icon-bar" />
-                        <span className="icon-bar" />
-                      </button>
-                    </div>
-                    <div className="navbar-collapse collapse clearfix">
-                      <ul className="navigation clearfix">
-                        <li className="dropdown">
-                          <Link to={"/home"}>Home</Link>
-                          <ul>
-                            <li>
-                              <a href="index-2.html">Home Page 01</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Home Page 02</a>
-                            </li>
-                            <li className="dropdown">
-                              <a href="#">Header Styles</a>
-                              <ul>
-                                <li>
-                                  <a href="index-2.html">Header Style 01</a>
-                                </li>
-                                <li>
-                                  <a href="index-3.html">Header Style 02</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="dropdown">
-                          <a href="#">About</a>
-                          <ul>
-                            <li>
-                              <a href="about.html">About Us</a>
-                            </li>
-                            <li>
-                              <a href="error.html">Error Page</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="current dropdown">
-                          <a href="#">Services</a>
-                          <ul>
-                            <li>
-                              <a href="service.html">Our Services</a>
-                            </li>
-                            <li>
-                              <a>Pets Full Grooming</a>
-                            </li>
-                            <li>
-                              <a>Dog Training</a>
-                            </li>
-                            <li>
-                              <a>Dog Walking</a>
-                            </li>
-                            <li>
-                              <a>Dog Full Care</a>
-                            </li>
-
-                            <li>
-                              <a href="single-service-6.html">
-                                Coat Handler Pets
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li className="dropdown">
-                          <a href="#">News</a>
-                          <ul>
-                            <li>
-                              <a href="blog.html">Our News</a>
-                            </li>
-                            <li>
-                              <a href="blog-single.html">Single News</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                </div>
-                <ul className="social-style-one">
-                  <li>
-                    <a href="#">
-                      <FontAwesomeIcon icon={faTwitter} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <FontAwesomeIcon icon={faFacebookF} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <FontAwesomeIcon icon={faInstagram} />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/*Sticky Header*/}
-        <div className="sticky-header">
-          <div className="container clearfix">
-            <figure className="logo-box">
-              <a href="index-2.html">
-                <img src="images/small-logo.png" alt="" />
-              </a>
-            </figure>
-            <div className="menu-area">
-              <nav className="main-menu navbar-expand-lg">
-                <div className="navbar-header">
-                  {/* Toggle Button */}
-                  <button
-                    type="button"
-                    className="navbar-toggle"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse"
-                  >
-                    <span className="icon-bar" />
-                    <span className="icon-bar" />
-                    <span className="icon-bar" />
-                  </button>
-                </div>
-                <div className="navbar-collapse collapse clearfix">
-                  <ul className="navigation clearfix">
-                    <li className="dropdown">
-                      <Link to={"/home"}>Home</Link>
-                      <ul>
-                        <li>
-                          <a href="index-2.html">Home Page 01</a>
-                        </li>
-                        <li>
-                          <a href="index-3.html">Home Page 02</a>
-                        </li>
-                        <li className="dropdown">
-                          <a href="#">Header Styles</a>
-                          <ul>
-                            <li>
-                              <a href="index-2.html">Header Style 01</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Header Style 02</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="dropdown">
-                      <a href="#">About</a>
-                      <ul>
-                        <li>
-                          <a href="about.html">About Us</a>
-                        </li>
-                        <li>
-                          <a href="error.html">Error Page</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="current dropdown">
-                      <a href="#">Services</a>
-                      <ul>
-                        <li>
-                          <a href="service.html">Our Services</a>
-                        </li>
-                        <li>
-                          <a href="single-service-1.html">Pets Full Grooming</a>
-                        </li>
-                        <li>
-                          <a href="single-service-2.html">Health Checkups</a>
-                        </li>
-                        <li>
-                          <a href="single-service-3.html">Styling Your Pets</a>
-                        </li>
-                        <li>
-                          <a href="single-service-4.html">
-                            Bath, Dry &amp; Brush
-                          </a>
-                        </li>
-                        <li>
-                          <a href="single-service-5.html">
-                            Cleaning &amp; Plucking
-                          </a>
-                        </li>
-                        <li>
-                          <a href="single-service-6.html">Coat Handler Pets</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="gallery.html">Gallery</a>
-                    </li>
-                    <li className="dropdown">
-                      <a href="#">News</a>
-                      <ul>
-                        <li>
-                          <a href="blog.html">Our News</a>
-                        </li>
-                        <li>
-                          <a href="blog-single.html">Single News</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </div>
-        {/* sticky-header end */}
-      </header>
+      <Header />
       {/* End Main Header */}
       {/* page-title */}
       <section
@@ -403,24 +85,24 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <a>
+                    <Link to={"pet-grooming"}>
                       <img src={`${images?.singlService1}`} alt="" />
-                    </a>
+                    </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <a>
+                      <Link to={"pet-grooming"}>
                         Pets Full
                         <br />
                         Grooming
-                      </a>
+                      </Link>
                     </h2>
                     <div className="text">
                       There are many variations of passages of ipsum available
                       but the majority red.
                     </div>
                     <div className="link">
-                      <a>Read more</a>
+                      <Link to={"pet-grooming"}>Read more</Link>
                     </div>
                   </div>
                 </div>
@@ -692,7 +374,9 @@ function PetService() {
         className="scroll-top scroll-to-target"
         data-target="html"
         id="arrow"
-        onClick={handleScrollToTop}
+        onClick={() => {
+          handleScrollToTop();
+        }}
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>

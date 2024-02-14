@@ -26,6 +26,9 @@ import singlService3 from "../images/resource/service-3.png";
 import singlService4 from "../images/resource/service-4.png";
 import singlService5 from "../images/resource/service-5.png";
 import singlService6 from "../images/resource/service-6.png";
+import serviceDetails1 from "../images/resource/service-details-1.jpg";
+import serviceDetails2 from "../images/resource/service-details-2.jpg";
+import serviceDetails3 from "../images/resource/service-details-3.jpg";
 export default {
   logo,
   pageTitle,
@@ -55,4 +58,7 @@ export default {
   singlService4,
   singlService5,
   singlService6,
+  serviceDetails1,
+  serviceDetails2,
+  serviceDetails3,
 };

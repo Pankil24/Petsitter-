@@ -686,10 +686,6 @@
      -o-transition: all 500ms ease;
  }
 
- .main-menu .navigation>li.current>a,
- .main-menu .navigation>li:hover>a {
-     color: #e72636;
- }
 
  .main-menu .navigation {
      position: relative;
@@ -865,12 +861,6 @@
 
  .sticky-header .main-menu .navigation>li>a {
      color: #222222;
- }
-
- .sticky-header .main-menu .navigation>li.current>a,
- .sticky-header .main-menu .navigation>li:hover>a {
-     background: #e72636;
-     color: #ffffff;
  }
 
  .sticky-header .logo-box {
@@ -1928,9 +1918,17 @@
      padding: 0px 5px;
  }
 
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+ }
+
  .contact-form-area .form-group input[type='text'],
  .contact-form-area .form-group input[type='email'],
+ .contact-form-area .form-group input[type='number'],
  .contact-form-area .form-group textarea {
+
      position: relative;
      display: block;
      width: 100%;
@@ -1953,6 +1951,26 @@
 
  .contact-form-area .form-group input:focus,
  .contact-form-area .form-group textarea:focus {
+     border: 3px solid #e72636;
+ }
+
+
+ .contact-form-area .form-group select {
+     position: relative;
+     display: block;
+     width: 100%;
+     height: 72px;
+     background: #f2f1f0;
+     border: 3px solid #f2f1f0;
+     color: #615e5d;
+     border-radius: 40px;
+     padding: 15px 25px;
+     font-size: 16px;
+     font-family: 'Arvo', Cursive;
+     transition: all 500ms ease;
+ }
+
+ .contact-form-area .form-group select:focus {
      border: 3px solid #e72636;
  }
 
