@@ -8,6 +8,9 @@ import ServiceForm from "../../Components/ServiceForm";
 import { handleScrollToTop } from "../../lib/staticFuntions";
 
 function PetGromming() {
+  const params = new URL(document.location).searchParams;
+  const serviceType = params.get("serviceType");
+  console.log(serviceType);
   return (
     // <>
     //   <p>this is gromming</p>
@@ -190,7 +193,7 @@ function PetGromming() {
                 </div>
               </div>
             </div>
-            <ServiceForm serviceType={""}/>
+            <ServiceForm serviceType={`${serviceType}`} />
           </div>
         </div>
       </section>

@@ -2,6 +2,12 @@ import React, { useEffect } from "react";
 import images from "../../images/images";
 import { Link, useLocation } from "react-router-dom";
 import { staticNav } from "../lib/staticFuntions";
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Header() {
   const location = useLocation();
@@ -31,17 +37,17 @@ function Header() {
             <ul className="social-style-one">
               <li>
                 <a href="#">
-                  <i className="fab fa-twitter" />
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i className="fab fa-facebook-f" />
+                  <FontAwesomeIcon icon={faFacebookF} />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i className="fab fa-instagram" />
+                  <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>
             </ul>
@@ -50,9 +56,7 @@ function Header() {
         <div className="toggle-box clearfix">
           <div className="page-header-mobile-info-toggle" />
           <div className="link">
-            <a href="contact.html" className="theme-btn">
-              Appointment
-            </a>
+            <a className="theme-btn">Appointment</a>
           </div>
         </div>
       </div>
@@ -63,14 +67,14 @@ function Header() {
               <li>
                 <i className="flaticon-mail" />
                 <strong>
-                  <a href="mailto:example@gmail.com">example@gmail.com</a>
+                  <a>example@gmail.com</a>
                 </strong>
                 Email address
               </li>
               <li>
                 <i className="flaticon-phone-call" />
                 <strong>
-                  <a href="tel:+886668880000">6668880000</a>
+                  <a>6668880000</a>
                 </strong>
                 Phone line
               </li>
@@ -88,7 +92,7 @@ function Header() {
           <div className="clearfix">
             <div className="logo-box">
               <figure className="logo">
-                <a href="index-2.html">
+                <a>
                   <img src={`${images?.logo}`} alt="" />
                 </a>
               </figure>
@@ -132,7 +136,7 @@ function Header() {
                         </Link>
                       </li>
                       <li className="dropdown">
-                        <a href="#">About</a>
+                        <a>About</a>
                       </li>
                       <li
                         className="current dropdown"
@@ -157,13 +161,11 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <a href="gallery.html">Gallery</a>
+                        <Link to={"/service-details"}>Service Details</Link>
                       </li>
-                      <li className="dropdown">
-                        <a href="#">News</a>
-                      </li>
+
                       <li>
-                        <a href="contact.html">Contact</a>
+                        <a>Contact</a>
                       </li>
                     </ul>
                   </div>
@@ -172,17 +174,17 @@ function Header() {
               <ul className="social-style-one">
                 <li>
                   <a href="#">
-                    <i className="fab fa-twitter" />
+                    <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="fab fa-facebook-f" />
+                    <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="fab fa-instagram" />
+                    <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
               </ul>
@@ -194,7 +196,7 @@ function Header() {
       <div className="sticky-header">
         <div className="container clearfix">
           <figure className="logo-box">
-            <a href="index-2.html">
+            <a>
               <img src={`${images?.logo}`} alt="" />
             </a>
           </figure>
@@ -236,7 +238,7 @@ function Header() {
                     </Link>
                   </li>
                   <li className="dropdown">
-                    <a href="#">About</a>
+                    <a>About</a>
                   </li>
                   <li
                     className="current dropdown"
@@ -258,13 +260,11 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <a href="gallery.html">Gallery</a>
+                    <Link to={"/service-details"}>Service History</Link>
                   </li>
-                  <li className="dropdown">
-                    <a href="#">News</a>
-                  </li>
+
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <a>Contact</a>
                   </li>
                 </ul>
               </div>

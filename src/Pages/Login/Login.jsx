@@ -17,6 +17,8 @@ import {
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 function Login() {
   const initVal = {
     email: "",
@@ -123,9 +125,31 @@ function Login() {
                   enableReinitialize={true}
                   initialValues={intivalValue}
                   validationSchema={validationSchema}
-                  onSubmit={(values) => {
-                    console.log(values);
-                    navigate("/home");
+                  validateOnChange={false}
+                  validateOnBlur={false}
+                  onSubmit={async (values) => {
+                    console.log("Data ==>", values);
+                    const result = await axios.post(
+                      "http://localhost:5000/login",
+                      values,
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      }
+                    );
+                    console.log("Result ==>", result);
+
+                    if (result?.data?.message === "User Exist") {
+                      localStorage.setItem("userName",result?.data?.userName)
+                      navigate("/home");
+                    } else {
+                      Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: result?.data
+                      });
+                    }
                   }}
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (

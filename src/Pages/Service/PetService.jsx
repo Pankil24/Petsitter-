@@ -85,13 +85,13 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <Link to={"pet-grooming"}>
+                    <Link to={"dog-service?serviceType=dog_grooming"}>
                       <img src={`${images?.singlService1}`} alt="" />
                     </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <Link to={"pet-grooming"}>
+                      <Link to={"dog-service?serviceType=dog_grooming"}>
                         Pets Full
                         <br />
                         Grooming
@@ -102,7 +102,9 @@ function PetService() {
                       but the majority red.
                     </div>
                     <div className="link">
-                      <Link to={"pet-grooming"}>Read more</Link>
+                      <Link to={"dog-service?serviceType=dog_grooming"}>
+                        Read more
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -114,24 +116,26 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <a>
+                    <Link to={"dog-service?serviceType=dog_taining"}>
                       <img src={`${images?.singlService2}`} alt="" />
-                    </a>
+                    </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <a>
+                      <Link to={"dog-service?serviceType=dog_training"}>
                         Dog
                         <br />
                         Training
-                      </a>
+                      </Link>
                     </h2>
                     <div className="text">
                       There are many variations of passages of ipsum available
                       but the majority red.
                     </div>
                     <div className="link">
-                      <a>Read more</a>
+                      <Link to={"dog-service?serviceType=dog_training"}>
+                        Read more
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -143,24 +147,26 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <a>
+                    <Link to={"dog-service?serviceType=dog_walking"}>
                       <img src={`${images?.singlService3}`} alt="" />
-                    </a>
+                    </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <a>
+                      <Link to={"dog-service?serviceType=dog_walking"}>
                         Dog
                         <br />
                         Walking
-                      </a>
+                      </Link>
                     </h2>
                     <div className="text">
                       There are many variations of passages of ipsum available
                       but the majority red.
                     </div>
                     <div className="link">
-                      <a>Read more</a>
+                      <Link to={"dog-service?serviceType=dog_walking"}>
+                        Read more
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -177,24 +183,26 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <a>
+                    <Link to={"dog-service?serviceType=dog_care"}>
                       <img src={`${images?.singlService5}`} alt="" />
-                    </a>
+                    </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <a>
+                      <Link to={"dog-service?serviceType=dog_care"}>
                         Pets
                         <br />
                         Full Care
-                      </a>
+                      </Link>
                     </h2>
                     <div className="text">
                       There are many variations of passages of ipsum available
                       but the majority red.
                     </div>
                     <div className="link">
-                      <a>Read more</a>
+                      <Link to={"dog-service?serviceType=dog_care"}>
+                        Read more
+                      </Link>
                     </div>
                   </div>
                 </div>

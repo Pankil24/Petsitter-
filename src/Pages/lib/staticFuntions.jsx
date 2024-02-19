@@ -9,14 +9,17 @@ export const staticNav = () => {
   const handleScroll = () => {
     const header = document.getElementById("myHeader");
     const arrow = document.getElementById("arrow");
-    const sticky = header.offsetTop;
 
-    if (window.pageYOffset > sticky) {
-      header.classList.add("fixed-header");
-      arrow.classList.add("open");
-    } else {
-      header.classList.remove("fixed-header");
-      arrow.classList.remove("open");
+    const sticky = header && header.offsetTop;
+    if (header !== null) {
+     
+      if (window.pageYOffset > sticky) {
+        header.classList.add("fixed-header");
+        arrow.classList.add("open");
+      } else {
+        header.classList.remove("fixed-header");
+        arrow.classList.remove("open");
+      }
     }
   };
 

@@ -7,6 +7,9 @@ import Register from "./Pages/Register/Register";
 import HomePage from "./Pages/Home/HomePage";
 import PetService from "./Pages/Service/PetService";
 import PetGromming from "./Pages/Service/Service Types/PetGromming";
+import AdminComp from "../src/Pages/Admin/AdminComp";
+import PetTraining from "./Pages/Service/Service Types/PetTraining";
+import ServiceDetails from "./Pages/Service history/ServiceDetails";
 
 function App() {
   return (
@@ -17,7 +20,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/service" element={<PetService />} />
-          <Route path="/service/pet-grooming" element={<PetGromming />} />
+          <Route path="/service/dog-service" element={<PetGromming />} />
+          <Route path="/service-details" element={<ServiceDetails/>}/>
+          <Route path="/admin" element={<AdminComp />} />
         </Routes>
       </BrowserRouter>
     </div>
