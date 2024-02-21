@@ -21,13 +21,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 function Login() {
   const initVal = {
-    email: "",
+    userName: "",
     password: "",
   };
 
   const [password, setPassword] = useState("password");
   const validationSchema = Yup.object({
-    email: Yup.string().required("Please enter email"),
+    userName: Yup.string().required("Please enter user name"),
     password: Yup.string().required("Please enter password"),
   });
   const [intivalValue, setInitialValue] = useState(initVal);
@@ -158,9 +158,9 @@ function Login() {
                         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                           <input
                             type="text"
-                            name="email"
-                            placeholder="Email address"
-                            value={values?.email}
+                            name="userName"
+                            placeholder="Your user name"
+                            value={values?.userName}
                             onChange={handleChange}
                           />
                           <div
@@ -168,7 +168,7 @@ function Login() {
                             style={{ marginLeft: "25px" }}
                           >
                             <small style={{ color: "red" }}>
-                              {errors.email}{" "}
+                              {errors.userName}{" "}
                             </small>
                           </div>
                         </div>

@@ -9,7 +9,7 @@ import { handleScrollToTop } from "../../lib/staticFuntions";
 
 function PetGromming() {
   const params = new URL(document.location).searchParams;
-  const serviceType = params.get("serviceType");
+  const serviceType = atob(params.get("serviceType"));
   console.log(serviceType);
   return (
     // <>

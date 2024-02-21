@@ -312,8 +312,8 @@ function Register() {
                             }}
                           >
                             <option value="">User Type</option>
-                            <option value="regular">User</option>
-                            <option value="regular">Caretaker</option>
+                            <option value="user">User</option>
+                            <option value="care_taker">Caretaker</option>
                             <option value="admin">Admin</option>
                           </select>
 

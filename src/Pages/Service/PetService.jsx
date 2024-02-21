@@ -85,13 +85,17 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <Link to={"dog-service?serviceType=dog_grooming"}>
+                    <Link
+                      to={`dog-service?serviceType=${btoa("dog_grooming")}`}
+                    >
                       <img src={`${images?.singlService1}`} alt="" />
                     </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <Link to={"dog-service?serviceType=dog_grooming"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_grooming")}`}
+                      >
                         Pets Full
                         <br />
                         Grooming
@@ -102,7 +106,9 @@ function PetService() {
                       but the majority red.
                     </div>
                     <div className="link">
-                      <Link to={"dog-service?serviceType=dog_grooming"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_grooming")}`}
+                      >
                         Read more
                       </Link>
                     </div>
@@ -116,13 +122,17 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <Link to={"dog-service?serviceType=dog_taining"}>
+                    <Link
+                      to={`dog-service?serviceType=${btoa("dog_training")}`}
+                    >
                       <img src={`${images?.singlService2}`} alt="" />
                     </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <Link to={"dog-service?serviceType=dog_training"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_training")}`}
+                      >
                         Dog
                         <br />
                         Training
@@ -133,7 +143,9 @@ function PetService() {
                       but the majority red.
                     </div>
                     <div className="link">
-                      <Link to={"dog-service?serviceType=dog_training"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_training")}`}
+                      >
                         Read more
                       </Link>
                     </div>
@@ -147,13 +159,15 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <Link to={"dog-service?serviceType=dog_walking"}>
+                    <Link to={`dog-service?serviceType=${btoa("dog_walking")}`}>
                       <img src={`${images?.singlService3}`} alt="" />
                     </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <Link to={"dog-service?serviceType=dog_walking"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_walking")}`}
+                      >
                         Dog
                         <br />
                         Walking
@@ -164,7 +178,9 @@ function PetService() {
                       but the majority red.
                     </div>
                     <div className="link">
-                      <Link to={"dog-service?serviceType=dog_walking"}>
+                      <Link
+                        to={`dog-service?serviceType=${btoa("dog_walking")}`}
+                      >
                         Read more
                       </Link>
                     </div>
@@ -183,13 +199,13 @@ function PetService() {
               >
                 <div className="service-block-one">
                   <figure className="image-box">
-                    <Link to={"dog-service?serviceType=dog_care"}>
+                    <Link to={`dog-service?serviceType=${btoa("dog_care")}`}>
                       <img src={`${images?.singlService5}`} alt="" />
                     </Link>
                   </figure>
                   <div className="lower-content">
                     <h2>
-                      <Link to={"dog-service?serviceType=dog_care"}>
+                      <Link to={`dog-service?serviceType=${btoa("dog_care")}`}>
                         Pets
                         <br />
                         Full Care
@@ -200,7 +216,7 @@ function PetService() {
                       but the majority red.
                     </div>
                     <div className="link">
-                      <Link to={"dog-service?serviceType=dog_care"}>
+                      <Link to={`dog-service?serviceType=${btoa("dog_care")}`}>
                         Read more
                       </Link>
                     </div>
