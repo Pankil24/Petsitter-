@@ -19,6 +19,7 @@ import { Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Loader from "../Components/Loader";
 function Login() {
   const initVal = {
     userName: "",
@@ -26,6 +27,7 @@ function Login() {
   };
 
   const [password, setPassword] = useState("password");
+  const [loading, setLoading] = useState(false);
   const validationSchema = Yup.object({
     userName: Yup.string().required("Please enter user name"),
     password: Yup.string().required("Please enter password"),
@@ -34,6 +36,7 @@ function Login() {
   const navigate = useNavigate();
   return (
     <>
+      {loading && <Loader />}
       <div className="preloader" />
 
       {/* Main Header */}
@@ -128,7 +131,7 @@ function Login() {
                   validateOnChange={false}
                   validateOnBlur={false}
                   onSubmit={async (values) => {
-                    console.log("Data ==>", values);
+                    setLoading(true);
                     const result = await axios.post(
                       "http://localhost:5000/login",
                       values,
@@ -138,16 +141,16 @@ function Login() {
                         },
                       }
                     );
-                    console.log("Result ==>", result);
 
+                    setLoading(false);
                     if (result?.data?.message === "User Exist") {
-                      localStorage.setItem("userName",result?.data?.userName)
+                      localStorage.setItem("userName", result?.data?.userName);
                       navigate("/home");
                     } else {
                       Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: result?.data
+                        text: result?.data,
                       });
                     }
                   }}

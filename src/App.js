@@ -10,6 +10,7 @@ import PetGromming from "./Pages/Service/Service Types/PetGromming";
 import AdminComp from "../src/Pages/Admin/AdminComp";
 import PetTraining from "./Pages/Service/Service Types/PetTraining";
 import ServiceDetails from "./Pages/Service history/ServiceDetails";
+import Loader from "./Pages/Components/Loader";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/service" element={<PetService />} />
           <Route path="/service/dog-service" element={<PetGromming />} />
-          <Route path="/service-details" element={<ServiceDetails/>}/>
+          <Route path="/service-details" element={<ServiceDetails />} />
           <Route path="/admin" element={<AdminComp />} />
         </Routes>
       </BrowserRouter>

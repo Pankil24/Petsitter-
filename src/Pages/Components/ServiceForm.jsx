@@ -6,10 +6,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
+import Loader from "./Loader";
 
 function ServiceForm(props) {
   const formate = "DD-MM-YYYY";
   const date = new Date();
+  const [loading, setLoading] = useState(false);
   // console.log(
   //   "Dayjs ==>",
   //   dayjs(
@@ -56,6 +58,7 @@ function ServiceForm(props) {
 
   return (
     <div>
+      {loading && <Loader />}
       <section className="contact-section centred">
         <div className="container">
           <div className="sec-title">
@@ -102,6 +105,7 @@ function ServiceForm(props) {
                     }
 
                     console.log("values data ==>", data);
+                    setLoading(true);
                     const result = await axios.post(
                       "http://localhost:5000/userService",
                       data,
@@ -124,6 +128,8 @@ function ServiceForm(props) {
                         }
                       });
                     }
+
+                    setLoading(false);
                   }}
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (

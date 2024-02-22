@@ -4,23 +4,28 @@ import Header from "../Components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { handleScrollToTop } from "../lib/staticFuntions";
+import Loader from "../Components/Loader";
 
 function ServiceDetails() {
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
   const userName = localStorage.getItem("userName");
   const getData = async () => {
+    setLoading(true);
     const result = await axios.get(
       `http://localhost:5000/serviceDetails?userId=${userName}`
     );
     console.log(result);
 
     setData(result?.data);
+    setLoading(false);
   };
   useEffect(() => {
     getData();
   }, []);
   return (
     <div className="">
+      {loading && <Loader />}
       <Header />
       <div className="container">
         <table class="table table-striped table-hover">
@@ -43,7 +48,7 @@ function ServiceDetails() {
           <tbody>
             {data?.map((item, index) => (
               <tr>
-                <th>{index}</th>
+                <th>{index + 1}</th>
                 <td>{item.dogname}</td>
                 <td>{item.breed}</td>
                 <td>{item.height}</td>

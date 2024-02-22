@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { resetWarned } from "antd/es/_util/warning";
 import Swal from "sweetalert2";
+import Loader from "../Components/Loader";
 function Register() {
   const initVal = {
     email: "",
@@ -34,6 +35,8 @@ function Register() {
   };
 
   const [password, setPassword] = useState("password");
+  const [loading, setLoading] = useState(false);
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .trim()
@@ -71,6 +74,7 @@ function Register() {
   const navigate = useNavigate();
   return (
     <>
+      {loading && <Loader />}
       <div className="preloader" />
 
       {/* Main Header */}
@@ -166,8 +170,9 @@ function Register() {
                   onSubmit={async (values) => {
                     console.log(values);
                     // navigate("/home");
-                    localStorage.setItem("userName",values?.userName)
+                    localStorage.setItem("userName", values?.userName);
 
+                    setLoading(true);
                     const result = await axios.post(
                       "http://localhost:5000/register",
                       values,
@@ -177,6 +182,8 @@ function Register() {
                         },
                       }
                     );
+
+                    setLoading(false);
 
                     if (result?.status === 200) {
                       navigate("/home");
