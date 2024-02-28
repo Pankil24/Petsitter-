@@ -22,6 +22,8 @@ import axios from "axios";
 import { resetWarned } from "antd/es/_util/warning";
 import Swal from "sweetalert2";
 import Loader from "../Components/Loader";
+import { TimePicker } from "antd";
+import dayjs from "dayjs";
 function Register() {
   const initVal = {
     email: "",
@@ -199,6 +201,7 @@ function Register() {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
+                      {console.log("values ==>", values)}
                       <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
@@ -333,7 +336,49 @@ function Register() {
                             </small>
                           </div>
                         </div>
-
+                        <div className="col-lg-6 col-md-12 col-sm-12 ">
+                          <TimePicker
+                            style={{
+                              width: "100%",
+                              borderRadius: "40px",
+                              height: "72px",
+                              backgroundColor: "#f2f1f0",
+                              padding: "15px 25px",
+                              color: "#615e5d",
+                              position: "relative",
+                              marginBottom: "12px",
+                            }}
+                            value={dayjs(
+                              values?.startTime ?? "00:00:00",
+                              "HH:mm:ss"
+                            )}
+                            onChange={(e, string) => {
+                              setFieldValue("startTime", string);
+                            }}
+                          />
+                        </div>
+                        <div className="col-lg-6 col-md-12 col-sm-12 ">
+                          <TimePicker
+                            style={{
+                              width: "100%",
+                              borderRadius: "40px",
+                              height: "72px",
+                              backgroundColor: "#f2f1f0",
+                              padding: "15px 25px",
+                              color: "#615e5d",
+                              position: "relative",
+                              marginBottom: "12px",
+                            }}
+                            disabled={values?.startTime ? false : true}
+                            value={dayjs(
+                              values?.endTime ?? "00:00:00",
+                              "HH:mm:ss"
+                            )}
+                            onChange={(e, string) => {
+                              setFieldValue("endTime", string);
+                            }}
+                          />
+                        </div>
                         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                           <input
                             type="text"

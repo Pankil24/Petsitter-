@@ -241,6 +241,10 @@
 
  /** button **/
 
+ .css-13cymwt-control{
+    background-color: grey;
+ }
+
  .theme-btn {
      position: relative;
      display: inline-block;

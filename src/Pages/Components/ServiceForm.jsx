@@ -7,20 +7,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import Loader from "./Loader";
+import Select from "react-select";
 
 function ServiceForm(props) {
   const formate = "DD-MM-YYYY";
   const date = new Date();
   const [loading, setLoading] = useState(false);
-  // console.log(
-  //   "Dayjs ==>",
-  //   dayjs(
-  //     date.toLocaleDateString().replace("/", "-").replace("/", "-"),
-  //     "YYYY-MM-DD"
-  //   )
-  // );
-  // console.log("Today Date ==>", dayjs(new Date()));
-  console.log(props);
+
   const navigate = useNavigate();
 
   const initVal = {
@@ -35,6 +28,42 @@ function ServiceForm(props) {
     servicetype: props.serviceType,
   };
 
+  const options = [
+    {
+      value: "Tommy",
+      label: "Tommy",
+      dogName: "Tommy",
+      age: 17,
+      height: 10,
+      weight: 30,
+      gender: "male",
+      breed: "labrador",
+    },
+    {
+      value: "COCO",
+      label: "COCO",
+      dogName: "COCO",
+      age: 10,
+      height: 5,
+      weight: 40,
+      gender: "Female",
+      breed: "dachshund",
+    },
+    {
+      value: "bruno",
+      label: "bruno",
+      dogName: "bruno",
+      age: 18,
+      height: 3,
+      weight: 50,
+      gender: "male",
+      breed: "boxer",
+    },
+    {
+      value: "Non of above",
+      label: "Non of above",
+    },
+  ];
   const validationSchema = Yup.object({
     dogName: Yup.string().required("Please enter dog name"),
     age: Yup.number()
@@ -72,8 +101,6 @@ function ServiceForm(props) {
                   initialValues={intivalValue}
                   validationSchema={validationSchema}
                   onSubmit={async (values) => {
-                    console.log(values);
-
                     let data;
 
                     if (values?.dateStr) {
@@ -103,8 +130,6 @@ function ServiceForm(props) {
                         message: values?.message,
                       };
                     }
-
-                    console.log("values data ==>", data);
                     setLoading(true);
                     const result = await axios.post(
                       "http://localhost:5000/userService",
@@ -122,7 +147,6 @@ function ServiceForm(props) {
                         text: "Your service is confirmed",
                         footer: '<a href="#">Have any query?</a>',
                       }).then((result) => {
-                        console.log("result ==>", result);
                         if (result?.isConfirmed === true) {
                           navigate("/home");
                         }
@@ -134,8 +158,28 @@ function ServiceForm(props) {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
-                      {/* {console.log(values)} */}
                       <div className="row">
+                        <div className="col-lg-12 col-md-12 col-sm-12 mb-3 text-left">
+                          Select dog details
+                          <Select
+                            className="text-left rounded"
+                            value={
+                              values?.dogSelect && {
+                                value: values?.dogName,
+                                label: values?.dogName,
+                              }
+                            }
+                            onChange={(event) => {
+                              if (event.label === "Non of above") {
+                                setIntivalValue({ ...initVal, dogSelect: "" });
+                              } else {
+                                setIntivalValue(event);
+                              }
+                            }}
+                            options={options}
+                          />
+                        </div>
+
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
                             type="text"
@@ -159,7 +203,7 @@ function ServiceForm(props) {
                             type="number"
                             name="age"
                             placeholder="Dog age"
-                            value={values?.age}
+                            value={values?.age ? values?.age : ""}
                             onChange={handleChange}
                           />
                           <div
@@ -176,7 +220,7 @@ function ServiceForm(props) {
                             type="number"
                             name="height"
                             placeholder="Dog height"
-                            value={values?.height}
+                            value={values?.height ? values?.height : ""}
                             onChange={handleChange}
                           />
                           <div
@@ -193,7 +237,7 @@ function ServiceForm(props) {
                             type="number"
                             name="weight"
                             placeholder="Dog weight"
-                            value={values?.weight}
+                            value={values?.weight ? values?.weight : ""}
                             onChange={handleChange}
                           />
                           <div
@@ -210,7 +254,6 @@ function ServiceForm(props) {
                           <select
                             value={values?.gender}
                             onChange={(e) => {
-                              // console.log(e.target.value);
                               setFieldValue("gender", e.target.value);
                             }}
                           >
