@@ -1,34 +1,56 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../../Components/Loader";
+import ReactPaginate from "react-paginate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import { useImmer } from "use-immer";
 
 function ListInfo() {
   const [data, setData] = useState();
   const [detailsType, setDetailsType] = useState("user");
   const [loading, setLoading] = useState(false);
+  const [filterData, setFilterData] = useImmer({
+    pageIndex: 0,
+    pageSize: 10,
+    detailsType: "user",
+  });
 
-  console.log("Data ==>", data);
   const getUserData = async () => {
     setLoading(true);
-    const result = await axios.get("http://localhost:5000/users");
+    const result = await axios.get(
+      `http://127.0.0.1:5000/users?pageSize=${filterData?.pageSize}&pageIndex=${
+        filterData?.pageIndex + 1
+      }`
+    );
 
     setLoading(false);
     setData(result?.data);
   };
   const getServiceData = async () => {
     setLoading(true);
-    const result = await axios.get("http://127.0.0.1:5000/serviceDetails");
+    const result = await axios.get(
+      `http://127.0.0.1:5000/serviceDetails?pageSize=${
+        filterData?.pageSize
+      }&pageIndex=${filterData?.pageIndex + 1}`
+    );
     setData(result?.data);
 
     setLoading(false);
   };
+
+  const handlePageClick = ({ selected }) => {
+    setFilterData((draft) => {
+      draft.pageIndex = selected;
+    });
+  };
   useEffect(() => {
-    // if (detailsType === "user") {
-    //   getUserData();
-    // } else {
-    //   getServiceData();
-    // }
-  }, [detailsType]);
+    if (filterData?.detailsType === "user") {
+      getUserData();
+    } else {
+      getServiceData();
+    }
+  }, [filterData]);
   return (
     <>
       {loading && <Loader />}
@@ -43,7 +65,11 @@ function ListInfo() {
               borderRadius: "10px 0px 0px 0px",
             }}
             onClick={() => {
-              setDetailsType("user");
+              setFilterData((draft) => {
+                draft.pageIndex = 0;
+                draft.pageSize = 10;
+                draft.detailsType = "user";
+              });
             }}
           >
             User
@@ -58,14 +84,18 @@ function ListInfo() {
               borderRadius: "0px 10px 0px 0px",
             }}
             onClick={() => {
-              setDetailsType("service");
+              setFilterData((draft) => {
+                draft.pageIndex = 0;
+                draft.pageSize = 10;
+                draft.detailsType = "service";
+              });
             }}
           >
             Service
           </button>
         </div>
-        {detailsType === "user" && (
-          <table class="table table-striped table-hover">
+        {filterData?.detailsType === "user" && (
+          <table class="table  text-left table-striped table-hover">
             <thead>
               <tr>
                 <th scope="col">No:</th>
@@ -78,9 +108,9 @@ function ListInfo() {
               </tr>
             </thead>
             <tbody>
-              {data?.map((item, index) => (
+              {data?.data?.map((item, index) => (
                 <tr>
-                  <th>{index + 1}</th>
+                  <th>{item?.id}</th>
                   <th>{item.username}</th>
                   <td>{item?.user_type}</td>
                   <td>{item?.phone_number}</td>
@@ -92,8 +122,8 @@ function ListInfo() {
             </tbody>
           </table>
         )}
-        {detailsType === "service" && (
-          <table class="table table-striped table-hover">
+        {filterData?.detailsType === "service" && (
+          <table class="table text-left table-striped table-hover">
             <thead>
               <tr>
                 <th scope="col">No:</th>
@@ -109,9 +139,9 @@ function ListInfo() {
               </tr>
             </thead>
             <tbody>
-              {data?.map((item, index) => (
+              {data?.data?.map((item, index) => (
                 <tr>
-                  <th>{index + 1}</th>
+                  <th>{item?.id}</th>
                   <td>{item.username}</td>
                   <td>{item.dogname}</td>
                   <td>{item.breed}</td>
@@ -129,6 +159,26 @@ function ListInfo() {
             </tbody>
           </table>
         )}
+
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel={<FontAwesomeIcon icon={faForward} />}
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={data?.totalPages}
+          previousLabel={<FontAwesomeIcon icon={faBackward} />}
+          containerClassName="pagination justify-content-center"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          activeClassName="active"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          forcePage={filterData?.pageIndex}
+        />
       </div>
     </>
   );

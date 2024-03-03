@@ -2,7 +2,7 @@ import { DatePicker } from "antd";
 import axios from "axios";
 import dayjs from "dayjs";
 import { Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
@@ -13,6 +13,7 @@ function ServiceForm(props) {
   const formate = "DD-MM-YYYY";
   const date = new Date();
   const [loading, setLoading] = useState(false);
+  const [bindData, setBindData] = useState([]);
 
   const navigate = useNavigate();
 
@@ -25,45 +26,25 @@ function ServiceForm(props) {
     breed: "",
     dateStr: "",
     dateStrEnd: "",
+    checkBox: false,
     servicetype: props.serviceType,
+    userName: localStorage.getItem("userName"),
   };
 
-  const options = [
-    {
-      value: "Tommy",
-      label: "Tommy",
-      dogName: "Tommy",
-      age: 17,
-      height: 10,
-      weight: 30,
-      gender: "male",
-      breed: "labrador",
-    },
-    {
-      value: "COCO",
-      label: "COCO",
-      dogName: "COCO",
-      age: 10,
-      height: 5,
-      weight: 40,
-      gender: "Female",
-      breed: "dachshund",
-    },
-    {
-      value: "bruno",
-      label: "bruno",
-      dogName: "bruno",
-      age: 18,
-      height: 3,
-      weight: 50,
-      gender: "male",
-      breed: "boxer",
-    },
-    {
-      value: "Non of above",
-      label: "Non of above",
-    },
-  ];
+  const options = bindData?.map((item) => {
+    return {
+      value: item?.dogname,
+      label: item?.dogname,
+      dogName: item?.dogname,
+      age: item?.age,
+      height: item?.height,
+      weight: item?.weight,
+      gender: item?.gender,
+      breed: item?.breed,
+      id: item?.id,
+      userName: localStorage.getItem("userName"),
+    };
+  });
   const validationSchema = Yup.object({
     dogName: Yup.string().required("Please enter dog name"),
     age: Yup.number()
@@ -85,6 +66,23 @@ function ServiceForm(props) {
 
   const [intivalValue, setIntivalValue] = useState(initVal);
 
+  const getData = async () => {
+    const userName = localStorage.getItem("userName");
+    const result = await axios.get(
+      `http://127.0.0.1:5000/dogData?username=${userName}`
+    );
+
+    console.log("Dog data ==>", result);
+
+    setBindData(result?.data);
+  };
+
+  console.log("Options ==>",options)
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       {loading && <Loader />}
@@ -101,6 +99,7 @@ function ServiceForm(props) {
                   initialValues={intivalValue}
                   validationSchema={validationSchema}
                   onSubmit={async (values) => {
+                    console.log("Values ==>", values);
                     let data;
 
                     if (values?.dateStr) {
@@ -132,7 +131,7 @@ function ServiceForm(props) {
                     }
                     setLoading(true);
                     const result = await axios.post(
-                      "http://localhost:5000/userService",
+                      "http://127.0.0.1:5000/userService",
                       data,
                       {
                         headers: {
@@ -140,6 +139,23 @@ function ServiceForm(props) {
                         },
                       }
                     );
+
+                    if (values?.checkBox === true) {
+                      console.log("in the check");
+                      const method = values?.id ? "PUT" : "POST";
+                      const endPointUrl = values?.id
+                        ? `http://127.0.0.1:5000/updateDog/${values?.id}`
+                        : "http://127.0.0.1:5000/addDog";
+
+                      const result = await axios({
+                        method: method,
+                        url: endPointUrl,
+                        data: values,
+                      });
+
+                      console.log("Result Data ==>", result);
+                    }
+
                     if (result?.status === 200) {
                       Swal.fire({
                         icon: "success",
@@ -158,27 +174,36 @@ function ServiceForm(props) {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
+                      {console.log("Data ==>", values)}
                       <div className="row">
-                        <div className="col-lg-12 col-md-12 col-sm-12 mb-3 text-left">
-                          Select dog details
-                          <Select
-                            className="text-left rounded"
-                            value={
-                              values?.dogSelect && {
-                                value: values?.dogName,
-                                label: values?.dogName,
+                        {bindData?.length > 0 && (
+                          <div className="col-lg-12 col-md-12 col-sm-12 mb-3 text-left">
+                            Select dog details
+                            <Select
+                              className="text-left rounded"
+                              value={
+                                values?.dogSelect && {
+                                  value: values?.dogName,
+                                  label: values?.dogName,
+                                }
                               }
-                            }
-                            onChange={(event) => {
-                              if (event.label === "Non of above") {
-                                setIntivalValue({ ...initVal, dogSelect: "" });
-                              } else {
-                                setIntivalValue(event);
-                              }
-                            }}
-                            options={options}
-                          />
-                        </div>
+                              onChange={(event) => {
+                                if (event.label === "Non of above") {
+                                  setIntivalValue({
+                                    ...initVal,
+                                    dogSelect: "",
+                                  });
+                                } else {
+                                  setIntivalValue({
+                                    ...event,
+                                    checkBox: event?.id ? true : false,
+                                  });
+                                }
+                              }}
+                              options={[...options,{value:"Non of above",label:"Non of above",...initVal}]}
+                            />
+                          </div>
+                        )}
 
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
@@ -256,6 +281,10 @@ function ServiceForm(props) {
                             onChange={(e) => {
                               setFieldValue("gender", e.target.value);
                             }}
+                            disabled={values?.id ? true : false}
+                            style={{
+                              cursor: values?.id ? "not-allowed" : "auto",
+                            }}
                           >
                             <option value="">Dog Gender</option>
                             <option value="male">Male</option>
@@ -276,6 +305,10 @@ function ServiceForm(props) {
                             value={values?.breed}
                             onChange={(e) => {
                               setFieldValue("breed", e.target.value);
+                            }}
+                            disabled={values?.id ? true : false}
+                            style={{
+                              cursor: values?.id ? "not-allowed" : "auto",
                             }}
                           >
                             <option value="">Dog Breed</option>
@@ -383,7 +416,26 @@ function ServiceForm(props) {
                             }}
                           />
                         </div>
-
+                        <div className="ml-2">
+                          <input
+                            disabled={values?.id ? true : false}
+                            style={{cursor: values?.id ? "not-allowed" : "auto"}}
+                            type="checkbox"
+                            checked={values?.checkBox}
+                            onChange={(event) => {
+                              console.log(
+                                "Event value ==>",
+                                event?.target?.checked
+                              );
+                              if (event?.target?.checked === true) {
+                                setFieldValue("checkBox", true);
+                              } else {
+                                setFieldValue("checkBox", false);
+                              }
+                            }}
+                          />{" "}
+                          <span className="ml-1">Remember the dog</span>
+                        </div>
                         <div className="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
                           <button type="submit" className="theme-btn">
                             Get service

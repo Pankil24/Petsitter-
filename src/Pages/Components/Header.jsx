@@ -118,55 +118,62 @@ function Header() {
                       <li
                         className="dropdown"
                         style={{
-                          backgroundColor: location?.pathname.includes("/home")
-                            ? "#e72636"
-                            : "",
+                          backgroundColor:
+                            location?.pathname === "/home" ? "#e72636" : "",
                         }}
                       >
                         <Link
                           className="pl-2 pr-3"
                           to={"/home"}
                           style={{
-                            color: location?.pathname.includes("/home")
-                              ? "white"
-                              : "",
+                            color:
+                              location?.pathname === "/home" ? "white" : "",
                           }}
                         >
                           Home
                         </Link>
                       </li>
-                      <li className="dropdown">
-                        <a>About</a>
-                      </li>
+
                       <li
                         className="current dropdown"
                         style={{
-                          backgroundColor: location?.pathname.includes(
-                            "/service"
-                          )
-                            ? "#e72636"
-                            : "",
+                          backgroundColor:
+                            location?.pathname === "/service" ? "#e72636" : "",
                         }}
                       >
                         <Link
                           className="pl-3 pr-3"
                           style={{
-                            color: location?.pathname.includes("/service")
-                              ? "white"
-                              : "",
+                            color:
+                              location?.pathname === "/service" ? "white" : "",
                           }}
                           to={"/service"}
                         >
                           Services
                         </Link>
                       </li>
-                      <li>
-                        <Link to={"/service-details"}>Service Details</Link>
+                      <li
+                        style={{
+                          backgroundColor:
+                            location?.pathname === "/service-details"
+                              ? "#e72636"
+                              : "",
+                        }}
+                      >
+                        <Link
+                          to={"/service-details"}
+                          style={{
+                            color:
+                              location?.pathname === "/service-details"
+                                ? "white"
+                                : "",
+                          }}
+                        >
+                          Service History
+                        </Link>
                       </li>
 
-                      <li>
-                        <a>Contact</a>
-                      </li>
+                    
                     </ul>
                   </div>
                 </nav>
@@ -237,9 +244,7 @@ function Header() {
                       Home
                     </Link>
                   </li>
-                  <li className="dropdown">
-                    <a>About</a>
-                  </li>
+
                   <li
                     className="current dropdown"
                     style={{
@@ -263,9 +268,7 @@ function Header() {
                     <Link to={"/service-details"}>Service History</Link>
                   </li>
 
-                  <li>
-                    <a>Contact</a>
-                  </li>
+                  
                 </ul>
               </div>
             </nav>

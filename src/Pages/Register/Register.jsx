@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/style.css";
 import "../../css/bootstrap.css";
 import Images from "../../images/images";
@@ -24,7 +24,11 @@ import Swal from "sweetalert2";
 import Loader from "../Components/Loader";
 import { TimePicker } from "antd";
 import dayjs from "dayjs";
+import { handleScrollToTop } from "../lib/staticFuntions";
+
+
 function Register() {
+  
   const initVal = {
     email: "",
     password: "",
@@ -71,9 +75,21 @@ function Register() {
     address: Yup.string()
       .min(20, "Please enter valid address")
       .required("Please enter address"),
+    startTime: Yup.string().when("userType", {
+      is: (value) => {
+        return value === "care_taker" ? true : false;
+      },
+      then: () => Yup.string().required("Please enter start data"),
+    }),
+    endTime: Yup.string().when(["startTime", "userType"], {
+      is: (startTime, userType) => userType === "care_taker" && startTime,
+      then: () => Yup.string().required("Please enter end time"),
+    }),
   });
+
   const [intivalValue, setInitialValue] = useState(initVal);
   const navigate = useNavigate();
+  
   return (
     <>
       {loading && <Loader />}
@@ -170,13 +186,12 @@ function Register() {
                   validationSchema={validationSchema}
                   validateOnChange={false}
                   onSubmit={async (values) => {
-                    console.log(values);
-                    // navigate("/home");
+                    
                     localStorage.setItem("userName", values?.userName);
 
                     setLoading(true);
                     const result = await axios.post(
-                      "http://localhost:5000/register",
+                      "http://127.0.0.1:5000/register",
                       values,
                       {
                         headers: {
@@ -196,12 +211,10 @@ function Register() {
                         text: result.data,
                       });
                     }
-                    console.log(result);
                   }}
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
-                      {console.log("values ==>", values)}
                       <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
@@ -212,6 +225,14 @@ function Register() {
                             value={values?.userName}
                             onChange={handleChange}
                           />
+                          <div
+                            className="text-left mt-2"
+                            style={{ marginLeft: "25px" }}
+                          >
+                            <small style={{ color: "red" }}>
+                              {errors.userName}{" "}
+                            </small>
+                          </div>
                         </div>
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
@@ -295,7 +316,6 @@ function Register() {
                           <select
                             value={values?.gender}
                             onChange={(e) => {
-                              // console.log(e.target.value);
                               setFieldValue("gender", e.target.value);
                             }}
                           >
@@ -317,7 +337,6 @@ function Register() {
                           <select
                             value={values?.userType}
                             onChange={(e) => {
-                              // console.log(e.target.value);
                               setFieldValue("userType", e.target.value);
                             }}
                           >
@@ -336,49 +355,70 @@ function Register() {
                             </small>
                           </div>
                         </div>
-                        <div className="col-lg-6 col-md-12 col-sm-12 ">
-                          <TimePicker
-                            style={{
-                              width: "100%",
-                              borderRadius: "40px",
-                              height: "72px",
-                              backgroundColor: "#f2f1f0",
-                              padding: "15px 25px",
-                              color: "#615e5d",
-                              position: "relative",
-                              marginBottom: "12px",
-                            }}
-                            value={dayjs(
-                              values?.startTime ?? "00:00:00",
-                              "HH:mm:ss"
-                            )}
-                            onChange={(e, string) => {
-                              setFieldValue("startTime", string);
-                            }}
-                          />
-                        </div>
-                        <div className="col-lg-6 col-md-12 col-sm-12 ">
-                          <TimePicker
-                            style={{
-                              width: "100%",
-                              borderRadius: "40px",
-                              height: "72px",
-                              backgroundColor: "#f2f1f0",
-                              padding: "15px 25px",
-                              color: "#615e5d",
-                              position: "relative",
-                              marginBottom: "12px",
-                            }}
-                            disabled={values?.startTime ? false : true}
-                            value={dayjs(
-                              values?.endTime ?? "00:00:00",
-                              "HH:mm:ss"
-                            )}
-                            onChange={(e, string) => {
-                              setFieldValue("endTime", string);
-                            }}
-                          />
-                        </div>
+                        {values?.userType === "care_taker" && (
+                          <>
+                            <div className="col-lg-6 col-md-12 col-sm-12 ">
+                              <TimePicker
+                                style={{
+                                  width: "100%",
+                                  borderRadius: "40px",
+                                  height: "72px",
+                                  backgroundColor: "#f2f1f0",
+                                  padding: "15px 25px",
+                                  color: "#615e5d",
+                                  position: "relative",
+                                  marginBottom: "12px",
+                                }}
+                                value={dayjs(
+                                  values?.startTime ? values?.startTime : "00:00:00",
+                                  "HH:mm:ss"
+                                )}
+                                onChange={(e, string) => {
+                                  setFieldValue("startTime",string);
+                                }}
+                              />
+                              <div
+                                className="text-left mt-2"
+                                style={{ marginLeft: "25px" }}
+                              >
+                                <small style={{ color: "red" }}>
+                                  {errors.startTime}{" "}
+                                </small>
+                              </div>
+                            </div>
+                            <div className="col-lg-6 col-md-12 col-sm-12 ">
+                              <TimePicker
+                                style={{
+                                  width: "100%",
+                                  borderRadius: "40px",
+                                  height: "72px",
+                                  backgroundColor: "#f2f1f0",
+                                  padding: "15px 25px",
+                                  color: "#615e5d",
+                                  position: "relative",
+                                  marginBottom: "12px",
+                                }}
+                                disabled={values?.startTime ? false : true}
+                                value={dayjs(
+                                  values?.endTime ? values?.endTime :"00:00:00",
+                                  "HH:mm:ss"
+                                )}
+                                onChange={(e, string) => {
+                                  setFieldValue("endTime", string);
+                                }}
+                              />
+
+                              <div
+                                className="text-left mt-2"
+                                style={{ marginLeft: "25px" }}
+                              >
+                                <small style={{ color: "red" }}>
+                                  {errors.endTime}{" "}
+                                </small>
+                              </div>
+                            </div>
+                          </>
+                        )}
                         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
                           <input
                             type="text"

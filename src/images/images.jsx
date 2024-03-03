@@ -29,6 +29,7 @@ import singlService6 from "../images/resource/service-6.png";
 import serviceDetails1 from "../images/resource/service-details-1.jpg";
 import serviceDetails2 from "../images/resource/service-details-2.jpg";
 import serviceDetails3 from "../images/resource/service-details-3.jpg";
+import errorImage from "../images/resource/error-file.png"
 export default {
   logo,
   pageTitle,
@@ -61,4 +62,5 @@ export default {
   serviceDetails1,
   serviceDetails2,
   serviceDetails3,
+  errorImage
 };

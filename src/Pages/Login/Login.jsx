@@ -20,6 +20,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../Components/Loader";
+
 function Login() {
   const initVal = {
     userName: "",
@@ -132,8 +133,9 @@ function Login() {
                   validateOnBlur={false}
                   onSubmit={async (values) => {
                     setLoading(true);
+                    
                     const result = await axios.post(
-                      "http://localhost:5000/login",
+                      `http://127.0.0.1:5000/login`,
                       values,
                       {
                         headers: {

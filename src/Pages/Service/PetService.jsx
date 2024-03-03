@@ -12,6 +12,7 @@ import Header from "../Components/Header";
 import { handleScrollToTop } from "../lib/staticFuntions";
 
 function PetService() {
+
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const header = document.getElementById("myHeader");
@@ -34,6 +35,7 @@ function PetService() {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+
   return (
     <>
       {/* Mirrored from azim.commonsupport.com/Poopet/service.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2024 13:24:20 GMT */}
