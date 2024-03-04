@@ -172,8 +172,16 @@ function Header() {
                           Service History
                         </Link>
                       </li>
-
-                    
+                      <li>
+                        <Link
+                          to={"/"}
+                          onClick={() => {
+                            localStorage.removeItem("userName");
+                          }}
+                        >
+                          Log Out{" "}
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </nav>
@@ -267,8 +275,16 @@ function Header() {
                   <li>
                     <Link to={"/service-details"}>Service History</Link>
                   </li>
-
-                  
+                  <li>
+                    <Link
+                      to={"/"}
+                      onClick={() => {
+                        localStorage.removeItem("userName");
+                      }}
+                    >
+                      Log Out{" "}
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </nav>

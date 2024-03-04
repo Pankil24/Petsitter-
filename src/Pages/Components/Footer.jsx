@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { checkPageAccess } from "../lib/staticFuntions";
 
 function Footer() {
   return (
@@ -40,23 +42,21 @@ function Footer() {
                 <div className="widget-content">
                   <ul className="link">
                     <li>
-                      <a href="#">Home</a>
+                      <Link to={"/home"}>Home</Link>
+                    </li>
+                   
+                    <li>
+                      <Link to={"/service"}>Services</Link>
                     </li>
                     <li>
-                      <a href="#">About</a>
+                      <Link to={"/service-details"}>Service history</Link>
                     </li>
-                    <li>
-                      <a href="#">Services</a>
+                    {
+                      checkPageAccess() && <li>
+                      <Link to={"/admin"}>Admin</Link>
                     </li>
-                    <li>
-                      <a href="#">Gallery</a>
-                    </li>
-                    <li>
-                      <a href="#">News</a>
-                    </li>
-                    <li>
-                      <a href="#">Contact</a>
-                    </li>
+                    }
+                    
                   </ul>
                 </div>
               </div>

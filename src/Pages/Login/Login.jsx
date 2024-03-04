@@ -147,6 +147,7 @@ function Login() {
                     setLoading(false);
                     if (result?.data?.message === "User Exist") {
                       localStorage.setItem("userName", result?.data?.userName);
+                      localStorage.setItem("userType",result?.data?.userType)
                       navigate("/home");
                     } else {
                       Swal.fire({

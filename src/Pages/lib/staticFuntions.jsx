@@ -12,7 +12,6 @@ export const staticNav = () => {
 
     const sticky = header && header.offsetTop;
     if (header !== null) {
-     
       if (window.pageYOffset > sticky) {
         header.classList.add("fixed-header");
         arrow.classList.add("open");
@@ -29,4 +28,12 @@ export const staticNav = () => {
   return () => {
     window.removeEventListener("scroll", handleScroll);
   };
+};
+
+export const checkPageAccess = () => {
+  if (localStorage.getItem("userType") === "admin") {
+    return true;
+  } else {
+    return false;
+  }
 };

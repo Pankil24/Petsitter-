@@ -2454,7 +2454,7 @@
    position: absolute;
    content: '';
    background: #e72636;
-   min-width: 150%;
+   width: 136%;
    height: 100%;
    left: 0px;
    top: 0px;

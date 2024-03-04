@@ -26,9 +26,7 @@ import { TimePicker } from "antd";
 import dayjs from "dayjs";
 import { handleScrollToTop } from "../lib/staticFuntions";
 
-
 function Register() {
-  
   const initVal = {
     email: "",
     password: "",
@@ -89,7 +87,7 @@ function Register() {
 
   const [intivalValue, setInitialValue] = useState(initVal);
   const navigate = useNavigate();
-  
+
   return (
     <>
       {loading && <Loader />}
@@ -186,9 +184,6 @@ function Register() {
                   validationSchema={validationSchema}
                   validateOnChange={false}
                   onSubmit={async (values) => {
-                    
-                    localStorage.setItem("userName", values?.userName);
-
                     setLoading(true);
                     const result = await axios.post(
                       "http://127.0.0.1:5000/register",
@@ -203,6 +198,8 @@ function Register() {
                     setLoading(false);
 
                     if (result?.status === 200) {
+                      localStorage.setItem("userName", values?.userName);
+                      localStorage.setItem("userType", values?.userType);
                       navigate("/home");
                     } else {
                       Swal.fire({
@@ -370,11 +367,13 @@ function Register() {
                                   marginBottom: "12px",
                                 }}
                                 value={dayjs(
-                                  values?.startTime ? values?.startTime : "00:00:00",
+                                  values?.startTime
+                                    ? values?.startTime
+                                    : "00:00:00",
                                   "HH:mm:ss"
                                 )}
                                 onChange={(e, string) => {
-                                  setFieldValue("startTime",string);
+                                  setFieldValue("startTime", string);
                                 }}
                               />
                               <div
@@ -400,7 +399,9 @@ function Register() {
                                 }}
                                 disabled={values?.startTime ? false : true}
                                 value={dayjs(
-                                  values?.endTime ? values?.endTime :"00:00:00",
+                                  values?.endTime
+                                    ? values?.endTime
+                                    : "00:00:00",
                                   "HH:mm:ss"
                                 )}
                                 onChange={(e, string) => {
