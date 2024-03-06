@@ -212,6 +212,7 @@ function Register() {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
+                      
                       <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
@@ -406,6 +407,18 @@ function Register() {
                                 )}
                                 onChange={(e, string) => {
                                   setFieldValue("endTime", string);
+                                }}
+                                disabledHours={() => {
+                                  const hours = [];
+                                  for (
+                                    let i = 0;
+                                    i < values?.startTime?.slice(0, 2);
+                                    i += 1
+                                  ) {
+                                    hours.push(i);
+                                  }
+                                  hours.push(hours?.length);
+                                  return hours;
                                 }}
                               />
 
