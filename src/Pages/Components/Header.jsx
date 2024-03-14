@@ -177,6 +177,7 @@ function Header() {
                           to={"/"}
                           onClick={() => {
                             localStorage.removeItem("userName");
+                            localStorage.removeItem("userType");
                           }}
                         >
                           Log Out{" "}
@@ -280,6 +281,7 @@ function Header() {
                       to={"/"}
                       onClick={() => {
                         localStorage.removeItem("userName");
+                        localStorage.removeItem("userType");
                       }}
                     >
                       Log Out{" "}
