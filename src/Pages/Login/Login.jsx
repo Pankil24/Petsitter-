@@ -133,7 +133,7 @@ function Login() {
                   validateOnBlur={false}
                   onSubmit={async (values) => {
                     setLoading(true);
-                    
+
                     const result = await axios.post(
                       `http://127.0.0.1:5000/login`,
                       values,
@@ -147,8 +147,13 @@ function Login() {
                     setLoading(false);
                     if (result?.data?.message === "User Exist") {
                       localStorage.setItem("userName", result?.data?.userName);
-                      localStorage.setItem("userType",result?.data?.userType)
-                      navigate("/home");
+                      localStorage.setItem("userType", result?.data?.userType);
+
+                      if (result?.data?.userType === "admin") {
+                        navigate("/admin")
+                      } else {
+                        navigate("/home");
+                      }
                     } else {
                       Swal.fire({
                         icon: "error",

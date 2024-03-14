@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { handleScrollToTop } from "../lib/staticFuntions";
+import { CheckPageAccess, handleScrollToTop } from "../lib/staticFuntions";
 import Loader from "../Components/Loader";
 import images from "../../images/images";
+import AccessDeniedPage from "../Components/AccessDeniedPage";
 
 function ServiceDetails() {
   const [data, setData] = useState();
@@ -26,9 +27,10 @@ function ServiceDetails() {
     getData();
   }, []);
 
-  console.log("getData ==>", data);
   return (
-    <div className="">
+    <>
+    { 
+      CheckPageAccess() ? <div className="">
       {loading && <Loader />}
       <Header />
       <div className="container">
@@ -97,7 +99,10 @@ function ServiceDetails() {
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
-    </div>
+    </div> : <AccessDeniedPage/>
+    }
+    
+    </>
   );
 }
 

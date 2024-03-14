@@ -71,13 +71,8 @@ function ServiceForm(props) {
     const result = await axios.get(
       `http://127.0.0.1:5000/dogData?username=${userName}`
     );
-
-    console.log("Dog data ==>", result);
-
     setBindData(result?.data);
   };
-
-  console.log("Options ==>",options)
 
   useEffect(() => {
     getData();
@@ -99,7 +94,7 @@ function ServiceForm(props) {
                   initialValues={intivalValue}
                   validationSchema={validationSchema}
                   onSubmit={async (values) => {
-                    console.log("Values ==>", values);
+                    
                     let data;
 
                     if (values?.dateStr) {
@@ -141,7 +136,7 @@ function ServiceForm(props) {
                     );
 
                     if (values?.checkBox === true) {
-                      console.log("in the check");
+                      
                       const method = values?.id ? "PUT" : "POST";
                       const endPointUrl = values?.id
                         ? `http://127.0.0.1:5000/updateDog/${values?.id}`
@@ -153,7 +148,7 @@ function ServiceForm(props) {
                         data: values,
                       });
 
-                      console.log("Result Data ==>", result);
+                     
                     }
 
                     if (result?.status === 200) {
@@ -174,7 +169,7 @@ function ServiceForm(props) {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
-                      {console.log("Data ==>", values)}
+                    
                       <div className="row">
                         {bindData?.length > 0 && (
                           <div className="col-lg-12 col-md-12 col-sm-12 mb-3 text-left">
@@ -423,10 +418,7 @@ function ServiceForm(props) {
                             type="checkbox"
                             checked={values?.checkBox}
                             onChange={(event) => {
-                              console.log(
-                                "Event value ==>",
-                                event?.target?.checked
-                              );
+                            
                               if (event?.target?.checked === true) {
                                 setFieldValue("checkBox", true);
                               } else {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { checkPageAccess } from "../lib/staticFuntions";
+import { CheckPageAccess } from "../lib/staticFuntions";
 
 function Footer() {
   return (
@@ -52,7 +52,7 @@ function Footer() {
                       <Link to={"/service-details"}>Service history</Link>
                     </li>
                     {
-                      checkPageAccess() && <li>
+                     CheckPageAccess() && <li>
                       <Link to={"/admin"}>Admin</Link>
                     </li>
                     }

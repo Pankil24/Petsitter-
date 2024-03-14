@@ -17,11 +17,16 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
 import Loader from "../Components/Loader";
+import { CheckPageAccess } from "../lib/staticFuntions";
+import AccessDeniedPage from "../Components/AccessDeniedPage";
+
 
 function HomePage() {
+
+  const location = useLocation()
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -51,7 +56,8 @@ function HomePage() {
     };
   }, []);
   return (
-    <>
+    <>{
+      CheckPageAccess() ?<>
       {/* Mirrored from azim.commonsupport.com/Poopet/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2024 13:22:51 GMT */}
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -135,17 +141,19 @@ function HomePage() {
           <div className="inner-content">
             <div className="content-box">
               <div className="sec-title">
-                <div className="top-title">Few Words About Poopet Company</div>
+                <div className="top-title">
+                  Few Words About Poopet Company
+                </div>
                 <h1>Pet Grooming &amp; Care Center</h1>
               </div>
               <div className="text">
                 <p>
                   There are many variations of passages of available but the
-                  majority have suffered alteration in some form, by injected hu
-                  randomised words which don look even slightly believable. If
-                  you are going to use a passage of you need to be sure there
-                  lipsim is simply free text now isn't anything embarr assing
-                  hidden in the middle of text.
+                  majority have suffered alteration in some form, by injected
+                  hu randomised words which don look even slightly believable.
+                  If you are going to use a passage of you need to be sure
+                  there lipsim is simply free text now isn't anything embarr
+                  assing hidden in the middle of text.
                 </p>
               </div>
             </div>
@@ -545,7 +553,7 @@ function HomePage() {
       </section>
       {/* healthcare-section end */}
       {/* pricing-section */}
-     
+
       {/* pricing-section end */}
       {/* gallery-section */}
       <section className="gallery-section ">
@@ -757,23 +765,23 @@ function HomePage() {
       {/* news-section end */}
       {/* google-map-section */}
       {/* <section className="google-map-section">
-        <div className="container">
-          <div className="google-map-area">
-            <div
-              className="google-map"
-              id="contact-google-map"
-              data-map-lat="40.712776"
-              data-map-lng="-74.005974"
-              data-icon-path="images/icons/map-marker.png"
-              data-map-title="Brooklyn, New York, United Kingdom"
-              data-map-zoom={12}
-              data-markers='{
-                  "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","images/icons/map-marker.png"]
-              }'
-            ></div>
-          </div>
+      <div className="container">
+        <div className="google-map-area">
+          <div
+            className="google-map"
+            id="contact-google-map"
+            data-map-lat="40.712776"
+            data-map-lng="-74.005974"
+            data-icon-path="images/icons/map-marker.png"
+            data-map-title="Brooklyn, New York, United Kingdom"
+            data-map-zoom={12}
+            data-markers='{
+                "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","images/icons/map-marker.png"]
+            }'
+          ></div>
         </div>
-      </section> */}
+      </div>
+    </section> */}
       {/* google-map-section end */}
       {/* cta-section */}
       <section className="cta-section centred">
@@ -907,8 +915,8 @@ function HomePage() {
                   <div className="widget-content">
                     <div className="text">
                       Etiam rhoncu sit amet adip scing simply thin sed ipsum
-                      dolor sit amet adip dine scing not avilable in the martket
-                      lorem ipsum sem neque.
+                      dolor sit amet adip dine scing not avilable in the
+                      martket lorem ipsum sem neque.
                     </div>
                   </div>
                 </div>
@@ -939,6 +947,8 @@ function HomePage() {
       {/* main-js */}
       {/* End of .page_wrapper */}
       {/* Mirrored from azim.commonsupport.com/Poopet/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2024 13:24:18 GMT */}
+    </> : <AccessDeniedPage/>
+    } 
     </>
   );
 }

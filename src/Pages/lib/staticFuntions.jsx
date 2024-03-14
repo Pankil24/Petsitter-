@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+
 export const handleScrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -30,10 +32,26 @@ export const staticNav = () => {
   };
 };
 
-export const checkPageAccess = () => {
-  if (localStorage.getItem("userType") === "admin") {
-    return true;
-  } else {
-    return false;
+export const CheckPageAccess = (path) => {
+
+  const location = useLocation()
+
+  if(location.pathname === "/admin"){
+    if(localStorage.getItem("userType")  === "admin"){
+      return true
+    }else{
+      return false
+    }
+  }else{
+    if(localStorage.getItem("userType") === "care_taker" || localStorage.getItem("userType") === "user"){
+      return true
+    }else{
+      return false
+    }
   }
+  // if (localStorage.getItem("userType") === "admin") {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 };

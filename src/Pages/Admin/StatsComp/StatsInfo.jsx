@@ -79,9 +79,6 @@ function StatsInfo() {
     });
   };
 
-
-  console.log("state data =>",statData?.serviceData.length)
-
   useEffect(() => {
     if (stateType === "user") {
 

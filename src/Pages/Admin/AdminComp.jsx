@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import Loader from "../Components/Loader";
 import ListInfo from "./ListComp/ListInfo";
 import StatsInfo from "./StatsComp/StatsInfo";
-import { checkPageAccess } from "../lib/staticFuntions";
-import images from "../../images/images";
+import { CheckPageAccess } from "../lib/staticFuntions";
+import AccessDeniedPage from "../Components/AccessDeniedPage";
 
 function AdminComp() {
   const [dataType, setDataType] = useState("list");
@@ -12,7 +12,7 @@ function AdminComp() {
 
   return (
     <>
-      {checkPageAccess() ? (
+      { CheckPageAccess() ? (
         <div className="container">
           <div className="mt-3 text-left">
             <button
@@ -37,14 +37,7 @@ function AdminComp() {
           {dataType === "stats" ? <StatsInfo /> : ""}
         </div>
       ) : (
-        <div className="mt-4">
-          <img
-            style={{ height: "92px" }}
-            src={`${images?.errorImage}`}
-            alt=""
-          />
-          <p className="mt-4">You didn't have access to this page</p>
-        </div>
+       <AccessDeniedPage/>
       )}
       {loading && <Loader />}
     </>
