@@ -5,10 +5,13 @@ import ListInfo from "./ListComp/ListInfo";
 import StatsInfo from "./StatsComp/StatsInfo";
 import { CheckPageAccess } from "../lib/staticFuntions";
 import AccessDeniedPage from "../Components/AccessDeniedPage";
+import { useNavigate } from "react-router-dom";
 
 function AdminComp() {
   const [dataType, setDataType] = useState("list");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -30,6 +33,13 @@ function AdminComp() {
               }}
             >
               Stats
+            </button>
+            <button className="btn btn-danger ml-3" onClick={()=>{
+              navigate("/")
+              localStorage.removeItem("userName")
+              localStorage.removeItem("userType")
+            }}>
+              Log out
             </button>
           </div>
 

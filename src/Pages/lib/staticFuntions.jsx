@@ -49,9 +49,5 @@ export const CheckPageAccess = (path) => {
       return false
     }
   }
-  // if (localStorage.getItem("userType") === "admin") {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
+ 
 };
