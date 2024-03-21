@@ -100,7 +100,7 @@ function Register() {
             <div className="clearfix">
               <div className="logo-box">
                 <figure className="logo" style={{ marginTop: "44px" }}>
-                  <a href="index-2.html">
+                  <a href="">
                     <img src={`${Images.logo}`} alt="" />
                   </a>
                 </figure>
@@ -126,17 +126,17 @@ function Register() {
                 </div>
                 <ul className="social-style-one">
                   <li>
-                    <a href="#">
+                    <a href="">
                       <FontAwesomeIcon icon={faTwitter} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="">
                       <FontAwesomeIcon icon={faFacebook} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="">
                       <FontAwesomeIcon icon={faInstagram} />
                     </a>
                   </li>
@@ -160,7 +160,7 @@ function Register() {
           <div className="content-box clearfix">
             <ul className="bread-crumb">
               <li>
-                <a href="index-2.html">Homepage</a>
+                <a href="">Homepage</a>
               </li>
               <li>Sign Up</li>
             </ul>
@@ -489,23 +489,23 @@ function Register() {
           <div className="container">
             <div className="top-content clearfix">
               <figure className="footer-logo">
-                <a href="index-2.html">
+                <a href="">
                   <img src={`${images.logo}`} alt="" />
                 </a>
               </figure>
               <ul className="social-style-one">
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faFacebook} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
@@ -522,22 +522,22 @@ function Register() {
                   <div className="widget-content">
                     <ul className="link">
                       <li>
-                        <a href="#">Home</a>
+                        <a href="">Home</a>
                       </li>
                       <li>
-                        <a href="#">About</a>
+                        <a href="">About</a>
                       </li>
                       <li>
-                        <a href="#">Services</a>
+                        <a href="">Services</a>
                       </li>
                       <li>
-                        <a href="#">Gallery</a>
+                        <a href="">Gallery</a>
                       </li>
                       <li>
-                        <a href="#">News</a>
+                        <a href="">News</a>
                       </li>
                       <li>
-                        <a href="#">Contact</a>
+                        <a href="">Contact</a>
                       </li>
                     </ul>
                   </div>
@@ -549,22 +549,22 @@ function Register() {
                   <div className="widget-content">
                     <ul className="link">
                       <li>
-                        <a href="#">FAQs</a>
+                        <a href="">FAQs</a>
                       </li>
                       <li>
-                        <a href="#">Help</a>
+                        <a href="">Help</a>
                       </li>
                       <li>
-                        <a href="#">Privacy Policy</a>
+                        <a href="">Privacy Policy</a>
                       </li>
                       <li>
-                        <a href="#">Terms of Use</a>
+                        <a href="">Terms of Use</a>
                       </li>
                       <li>
-                        <a href="#">Site Map</a>
+                        <a href="">Site Map</a>
                       </li>
                       <li>
-                        <a href="#">Location</a>
+                        <a href="">Location</a>
                       </li>
                     </ul>
                   </div>
@@ -578,14 +578,14 @@ function Register() {
                       660 Broklyn Street,
                       <br />
                       88 New York U.S.A
-                      <a href="mailto:example@gmail.com">example@gmail.com</a>
-                      <a href="mailto:info@gmail.com">info@gmail.com</a>
+                      <a href="">example@gmail.com</a>
+                      <a href="">info@gmail.com</a>
                     </div>
                     <div className="phone">
-                      <a href="tel:+886668880000">666 888 0000</a>
+                      <a href="">666 888 0000</a>
                     </div>
                     <div className="phone">
-                      <a href="tel:+88333555999">333 555 999</a>
+                      <a href="">333 555 999</a>
                     </div>
                   </div>
                 </div>
@@ -600,7 +600,7 @@ function Register() {
                       lorem ipsum sem neque.
                     </div>
                     <div className="subscribe-form">
-                      <form action="#" method="post">
+                      <form action="" method="post">
                         <div className="form-group">
                           <input
                             type="email"

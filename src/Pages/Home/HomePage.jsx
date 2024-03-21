@@ -198,28 +198,28 @@ function HomePage() {
                 data-wow-duration="1500ms"
               >
                 <figure className="image-box">
-                  <a href="#">
+                  <a href="">
                     <img src={`${images?.team4}`} alt="" />
                   </a>
                 </figure>
                 <div className="lower-content">
                   <h3>
-                    <a href="#">Reena Scot</a>
+                    <a href="">Reena Scot</a>
                   </h3>
                   <span className="designation">Groomer</span>
                   <ul className="social-style-one">
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faFacebookF} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </li>
@@ -234,28 +234,28 @@ function HomePage() {
                 data-wow-duration="1500ms"
               >
                 <figure className="image-box">
-                  <a href="#">
+                  <a href="">
                     <img src={`${images?.team5}`} alt="" />
                   </a>
                 </figure>
                 <div className="lower-content">
                   <h3>
-                    <a href="#">Mike Albert</a>
+                    <a href="">Mike Albert</a>
                   </h3>
                   <span className="designation">Groomer</span>
                   <ul className="social-style-one">
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faFacebookF} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </li>
@@ -270,28 +270,28 @@ function HomePage() {
                 data-wow-duration="1500ms"
               >
                 <figure className="image-box">
-                  <a href="#">
+                  <a href="">
                     <img src={`${images?.team6}`} alt="" />
                   </a>
                 </figure>
                 <div className="lower-content">
                   <h3>
-                    <a href="#">Sarah Eve</a>
+                    <a href="">Sarah Eve</a>
                   </h3>
                   <span className="designation">Groomer</span>
                   <ul className="social-style-one">
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faFacebookF} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </li>
@@ -306,28 +306,28 @@ function HomePage() {
                 data-wow-duration="1500ms"
               >
                 <figure className="image-box">
-                  <a href="#">
+                  <a href="">
                     <img src={`${images?.team7}`} alt="" />
                   </a>
                 </figure>
                 <div className="lower-content">
                   <h3>
-                    <a href="#">Reena Scot</a>
+                    <a href="">Reena Scot</a>
                   </h3>
                   <span className="designation">Groomer</span>
                   <ul className="social-style-one">
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faFacebookF} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="">
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </li>
@@ -359,7 +359,7 @@ function HomePage() {
                   </h1>
                 </div>
                 <div className="link">
-                  <a href="#" className="theme-btn">
+                  <a href="" className="theme-btn">
                     Learn more
                   </a>
                 </div>
@@ -379,7 +379,7 @@ function HomePage() {
                           <i className="flaticon-staff" />
                         </div>
                         <h3>
-                          <a href="#">
+                          <a href="">
                             Professional
                             <br />
                             Staff
@@ -403,7 +403,7 @@ function HomePage() {
                           <i className="flaticon-shield" />
                         </div>
                         <h3>
-                          <a href="#">
+                          <a href="">
                             Deliver Quality
                             <br />
                             Services
@@ -427,7 +427,7 @@ function HomePage() {
                           <i className="flaticon-veterinary" />
                         </div>
                         <h3>
-                          <a href="#">
+                          <a href="">
                             Best Medical
                             <br />
                             Treatment
@@ -451,7 +451,7 @@ function HomePage() {
                           <i className="flaticon-support" />
                         </div>
                         <h3>
-                          <a href="#">
+                          <a href="">
                             24/7 Smart
                             <br />
                             Support
@@ -516,7 +516,7 @@ function HomePage() {
                           <FontAwesomeIcon icon={faCat} />
                         </div>
                         <h3>
-                          <a href="#">Feeding a cat to be healthy</a>
+                          <a href="">Feeding a cat to be healthy</a>
                         </h3>
                         <div className="text" style={{ color: "grey" }}>
                           There are many variations of passages of orem ipsum
@@ -535,7 +535,7 @@ function HomePage() {
                           <FontAwesomeIcon icon={faPaw} />
                         </div>
                         <h3>
-                          <a href="#">Dogs veterinary diest plans</a>
+                          <a href="">Dogs veterinary diest plans</a>
                         </h3>
                         <div className="text" style={{ color: "grey" }}>
                           There are many variations of passages of orem ipsum
@@ -564,7 +564,7 @@ function HomePage() {
                 <img src={`${images?.gallary1}`} alt="" />
                 <div className="icon-box">
                   <a
-                    href="images/gallery/gallery-1.png"
+                    href=""
                     className="lightbox-image"
                     data-fancybox="gallery"
                   >
@@ -578,7 +578,7 @@ function HomePage() {
                 <img src={`${images?.gallary2}`} alt="" />
                 <div className="icon-box">
                   <a
-                    href="images/gallery/gallery-2.png"
+                    href=""
                     className="lightbox-image"
                     data-fancybox="gallery"
                   >
@@ -592,7 +592,7 @@ function HomePage() {
                 <img src={`${images?.gallary3}`} alt="" />
                 <div className="icon-box">
                   <a
-                    href="images/gallery/gallery-3.png"
+                    href=""
                     className="lightbox-image"
                     data-fancybox="gallery"
                   >
@@ -606,7 +606,7 @@ function HomePage() {
                 <img src={`${images?.gallary4}`} alt="" />
                 <div className="icon-box">
                   <a
-                    href="images/gallery/gallery-5.png"
+                    href=""
                     className="lightbox-image"
                     data-fancybox="gallery"
                   >
@@ -620,7 +620,7 @@ function HomePage() {
                 <img src={`${images?.gallary5}`} alt="" />
                 <div className="icon-box">
                   <a
-                    href="images/gallery/gallery-5.png"
+                    href=""
                     className="lightbox-image"
                     data-fancybox="gallery"
                   >
@@ -654,7 +654,7 @@ function HomePage() {
                   Mar
                 </div>
                 <figure className="image-box">
-                  <a href="blog-single.html">
+                  <a href="">
                     <img src={`${images?.new1}`} alt="" />
                   </a>
                 </figure>
@@ -664,7 +664,7 @@ function HomePage() {
                     <li>3 Comments</li>
                   </ul>
                   <h3>
-                    <a href="blog-single.html">
+                    <a href="">
                       How to take care of any kind of your pets
                     </a>
                   </h3>
@@ -676,7 +676,7 @@ function HomePage() {
                     </p>
                   </div>
                   <div className="link">
-                    <a href="blog-single.html">Read more</a>
+                    <a href="">Read more</a>
                   </div>
                 </div>
               </div>
@@ -693,7 +693,7 @@ function HomePage() {
                   Mar
                 </div>
                 <figure className="image-box">
-                  <a href="blog-single.html">
+                  <a href="">
                     <img src={`${images?.new2}`} alt="" />
                   </a>
                 </figure>
@@ -703,7 +703,7 @@ function HomePage() {
                     <li>2 Comments</li>
                   </ul>
                   <h3>
-                    <a href="blog-single.html">
+                    <a href="">
                       Shelter and feed animals that are in need
                     </a>
                   </h3>
@@ -715,7 +715,7 @@ function HomePage() {
                     </p>
                   </div>
                   <div className="link">
-                    <a href="blog-single.html">Read more</a>
+                    <a href="">Read more</a>
                   </div>
                 </div>
               </div>
@@ -732,7 +732,7 @@ function HomePage() {
                   Mar
                 </div>
                 <figure className="image-box">
-                  <a href="blog-single.html">
+                  <a href="">
                     <img src={`${images?.new3}`} alt="" />
                   </a>
                 </figure>
@@ -742,7 +742,7 @@ function HomePage() {
                     <li>4 Comments</li>
                   </ul>
                   <h3>
-                    <a href="blog-single.html">
+                    <a href="">
                       Dog walking helps keep your dog sane
                     </a>
                   </h3>
@@ -814,17 +814,17 @@ function HomePage() {
               </figure>
               <ul className="social-style-one">
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
@@ -841,22 +841,22 @@ function HomePage() {
                   <div className="widget-content">
                     <ul className="link">
                       <li>
-                        <a href="#">Home</a>
+                        <a href="">Home</a>
                       </li>
                       <li>
-                        <a href="#">About</a>
+                        <a href="">About</a>
                       </li>
                       <li>
                         <Link to="/service">Services</Link>
                       </li>
                       <li>
-                        <a href="#">Gallery</a>
+                        <a href="">Gallery</a>
                       </li>
                       <li>
-                        <a href="#">News</a>
+                        <a href="">News</a>
                       </li>
                       <li>
-                        <a href="#">Contact</a>
+                        <a href="">Contact</a>
                       </li>
                     </ul>
                   </div>
@@ -868,22 +868,22 @@ function HomePage() {
                   <div className="widget-content">
                     <ul className="link">
                       <li>
-                        <a href="#">FAQs</a>
+                        <a href="">FAQs</a>
                       </li>
                       <li>
-                        <a href="#">Help</a>
+                        <a href="">Help</a>
                       </li>
                       <li>
-                        <a href="#">Privacy Policy</a>
+                        <a href="">Privacy Policy</a>
                       </li>
                       <li>
-                        <a href="#">Terms of Use</a>
+                        <a href="">Terms of Use</a>
                       </li>
                       <li>
-                        <a href="#">Site Map</a>
+                        <a href="">Site Map</a>
                       </li>
                       <li>
-                        <a href="#">Location</a>
+                        <a href="">Location</a>
                       </li>
                     </ul>
                   </div>
@@ -897,14 +897,14 @@ function HomePage() {
                       660 Broklyn Street,
                       <br />
                       88 New York U.S.A
-                      <a href="mailto:example@gmail.com">example@gmail.com</a>
-                      <a href="mailto:info@gmail.com">info@gmail.com</a>
+                      <a href="">petcare@gmail.com</a>
+                      <a href="">petcareservice@gmail.com</a>
                     </div>
                     <div className="phone">
-                      <a href="tel:+886668880000">666 888 0000</a>
+                      <a href="">+91 9727943136</a>
                     </div>
                     <div className="phone">
-                      <a href="tel:+88333555999">333 555 999</a>
+                      <a href="">+91 9727943136</a>
                     </div>
                   </div>
                 </div>

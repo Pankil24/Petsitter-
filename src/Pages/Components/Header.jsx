@@ -36,17 +36,17 @@ function Header() {
             </ul>
             <ul className="social-style-one">
               <li>
-                <a href="#">
+                <a href="">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="">
                   <FontAwesomeIcon icon={faFacebookF} />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>
@@ -189,17 +189,17 @@ function Header() {
               </div>
               <ul className="social-style-one">
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>

@@ -18,24 +18,32 @@ function ListInfo() {
 
   const getUserData = async () => {
     setLoading(true);
-    const result = await axios.get(
-      `http://127.0.0.1:5000/users?pageSize=${filterData?.pageSize}&pageIndex=${
-        filterData?.pageIndex + 1
-      }`
-    );
+    try{
+      const result = await axios.get(
+        `http://127.0.0.1:5000/users?pageSize=${filterData?.pageSize}&pageIndex=${
+          filterData?.pageIndex + 1
+        }`
+      );
 
+      setData(result?.data);
+    }catch(error){
+      console.log(error.message)
+    }
     setLoading(false);
-    setData(result?.data);
   };
   const getServiceData = async () => {
     setLoading(true);
-    const result = await axios.get(
-      `http://127.0.0.1:5000/serviceDetails?pageSize=${
-        filterData?.pageSize
-      }&pageIndex=${filterData?.pageIndex + 1}`
-    );
-    setData(result?.data);
+    try{
 
+      const result = await axios.get(
+        `http://127.0.0.1:5000/serviceDetails?pageSize=${
+          filterData?.pageSize
+        }&pageIndex=${filterData?.pageIndex + 1}`
+      );
+      setData(result?.data);
+    }catch(error){
+      console.log(error.message)
+    }
     setLoading(false);
   };
 

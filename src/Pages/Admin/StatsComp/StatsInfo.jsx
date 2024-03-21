@@ -63,29 +63,35 @@ function StatsInfo() {
   ];
 
   const fetchUserData = async () => {
-    const getUserData = await axios.get("http://127.0.0.1:5000/getUserCount");
-    setStatData((draft) => {
-      draft.userData = getUserData;
-    });
+    try {
+      const getUserData = await axios.get("http://127.0.0.1:5000/getUserCount");
+      setStatData((draft) => {
+        draft.userData = getUserData;
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchServiceData = async () => {
-    const getServiceData = await axios.get(
-      "http://127.0.0.1:5000/serviceStats"
-    );
-
-    setStatData((draft) => {
-      draft.serviceData = getServiceData;
-    });
+    try {
+      const getServiceData = await axios.get(
+        "http://127.0.0.1:5000/serviceStats"
+      );
+  
+      setStatData((draft) => {
+        draft.serviceData = getServiceData;
+      });
+    } catch (error) {
+      console.log(error.message)
+    }
   };
 
   useEffect(() => {
     if (stateType === "user") {
-
       statData?.userData.length === 0 && fetchUserData();
     } else if (stateType === "service" || "revanue") {
-      statData?.serviceData.length === 0 &&  fetchServiceData();
-      
+      statData?.serviceData.length === 0 && fetchServiceData();
     }
   }, [stateType]);
   return (

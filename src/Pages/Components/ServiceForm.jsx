@@ -68,10 +68,14 @@ function ServiceForm(props) {
 
   const getData = async () => {
     const userName = localStorage.getItem("userName");
-    const result = await axios.get(
-      `http://127.0.0.1:5000/dogData?username=${userName}`
-    );
-    setBindData(result?.data);
+    try{
+      const result = await axios.get(
+        `http://127.0.0.1:5000/dogData?username=${userName}`
+      );
+      setBindData(result?.data);
+    }catch(error){
+      console.log(error.message)
+    }
   };
 
   useEffect(() => {

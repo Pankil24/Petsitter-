@@ -45,7 +45,7 @@ function PetGromming() {
               <div className="content-box clearfix">
                 <ul className="bread-crumb">
                   <li>
-                    <a href="index-2.html">Service</a>
+                    <a href="">Service</a>
                   </li>
                   <li>Gromming</li>
                 </ul>
@@ -132,7 +132,7 @@ function PetGromming() {
                                 />
                                 <div className="icon-box">
                                   <a
-                                    href="images/resource/service-details-3.jpg"
+                                    href=""
                                     className="lightbox-image"
                                     data-fancybox="gallery"
                                   >
@@ -161,32 +161,32 @@ function PetGromming() {
                       <div className="widget-content">
                         <ul className="category-list">
                           <li className="active">
-                            <a href="single-service-1.html">
+                            <a href="">
                               Pets Full Grooming
                             </a>
                           </li>
                           <li>
-                            <a href="single-service-2.html">
+                            <a href="">
                               Regular Health Checkups
                             </a>
                           </li>
                           <li>
-                            <a href="single-service-3.html">
+                            <a href="">
                               Styling Your Pets
                             </a>
                           </li>
                           <li>
-                            <a href="single-service-4.html">
+                            <a href="">
                               Bath, Dry &amp; Brush
                             </a>
                           </li>
                           <li>
-                            <a href="single-service-5.html">
+                            <a href=" ">
                               Pets Cleaning &amp; Plucking
                             </a>
-                          </li>
-                          <li>
-                            <a href="single-service-6.html">
+                          </li> 
+                          <li>    
+                            <a href="">
                               Coat Handler Pets
                             </a>
                           </li>

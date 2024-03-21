@@ -9,23 +9,23 @@ function Footer() {
         <div className="container">
           <div className="top-content clearfix">
             <figure className="footer-logo">
-              <a href="index-2.html">
+              <a href="">
                 <img src="images/footer-logo.png" alt="" />
               </a>
             </figure>
             <ul className="social-style-one">
               <li>
-                <a href="#">
+                <a href="">
                   <i className="fab fa-twitter" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="">
                   <i className="fab fa-facebook-f" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="">
                   <i className="fab fa-instagram" />
                 </a>
               </li>
@@ -67,22 +67,22 @@ function Footer() {
                 <div className="widget-content">
                   <ul className="link">
                     <li>
-                      <a href="#">FAQs</a>
+                      <a href="">FAQs</a>
                     </li>
                     <li>
-                      <a href="#">Help</a>
+                      <a href="">Help</a>
                     </li>
                     <li>
-                      <a href="#">Privacy Policy</a>
+                      <a href="">Privacy Policy</a>
                     </li>
                     <li>
-                      <a href="#">Terms of Use</a>
+                      <a href="">Terms of Use</a>
                     </li>
                     <li>
-                      <a href="#">Site Map</a>
+                      <a href="">Site Map</a>
                     </li>
                     <li>
-                      <a href="#">Location</a>
+                      <a href="">Location</a>
                     </li>
                   </ul>
                 </div>
@@ -96,14 +96,14 @@ function Footer() {
                     660 Broklyn Street,
                     <br />
                     88 New York U.S.A
-                    <a href="mailto:example@gmail.com">example@gmail.com</a>
-                    <a href="mailto:info@gmail.com">info@gmail.com</a>
+                    <a href="">petcare@gmail.com</a>
+                    <a href="">petcareservice@gmail.com</a>
                   </div>
                   <div className="phone">
-                    <a href="tel:+886668880000">666 888 0000</a>
+                    <a href="">+91 9727943136</a>
                   </div>
                   <div className="phone">
-                    <a href="tel:+88333555999">333 555 999</a>
+                    <a href="">+91 9727 9431 36</a>
                   </div>
                 </div>
               </div>

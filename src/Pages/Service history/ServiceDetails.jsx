@@ -15,11 +15,15 @@ function ServiceDetails() {
 
   const getData = async () => {
     setLoading(true);
-    const result = await axios.get(
-      `http://127.0.0.1:5000/serviceDetails?userId=${userName}`
-    );
-
-    setData(result?.data);
+    try{
+      const result = await axios.get(
+        `http://127.0.0.1:5000/serviceDetails?userId=${userName}`
+      );
+  
+      setData(result?.data);
+    }catch(error){
+      console.log(error.message)
+    }
     setLoading(false);
   };
 
