@@ -66,44 +66,128 @@ function PetGromming() {
                         </figure>
                         <h2>Pets Full Grooming</h2>
                         <div className="text">
-                          <p>
-                            There are many variations of passages of lorem ipsum
-                            available, but the majority have suffered alteration
-                            in some form. Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Sed auctor erat lectus,
-                            euismod posuere erat aliquet quis. Etiam sit amet
-                            nunc sed quam dapibus non efficitur at in metus. Nam
-                            et metus eget arcu volutpat rhoncus et eu mi. Donec
-                            id tellus sed nulla faucibus aliquam.
-                          </p>
-                          <p>
-                            Pellentesque habitant morbi tristique senectus et
-                            netus et malesuada fames ac turpis egestas. Morbi
-                            est nibh, hendrerit bibendum enim eu, vehicula porta
-                            nisi. Donec at ligula sed turpis mollis commodo in
-                            convallis magna. Aliquam a mi mauris. Maecenas
-                            volutpat dui vel mauris tempus placerat. Proin
-                            blandit eu tortor vel pellentesque. Fusce laoreet
-                            ipsum lorem, at aliquet ipsum varius tempus.
-                          </p>
+                          {serviceType === "dog_grooming" && (
+                            <p>
+                              Consultation: Our experienced groomers will start
+                              by having a consultation with you to discuss your
+                              pet's specific needs and preferences. We'll talk
+                              about their coat type, any health concerns, and
+                              the style you're aiming for.
+                            </p>
+                          )}
+
+                          {serviceType === "dog_training" && (
+                            <p>
+                              Initial Consultation: We'll start with a
+                              comprehensive consultation to discuss your pet's
+                              behavior, temperament, and training goals. Whether
+                              you're dealing with puppy basics or behavioral
+                              issues in an older dog, we'll create a customized
+                              training plan to meet your needs.
+                            </p>
+                          )}
+
+                          {serviceType === "dog_walking" && (
+                            <p>
+                              Personalized Consultation: Before we hit the
+                              trails, we'll schedule a consultation to get to
+                              know your pet's personality, energy level, and any
+                              specific needs or preferences they may have. This
+                              helps us tailor the walk to their individual
+                              requirements.
+                            </p>
+                          )}
+
+                          {serviceType === "dog_care" && (
+                            <p>
+                              Daily Check-Ins: Our experienced and caring pet
+                              sitters will visit your home daily to check in on
+                              your pets. We'll ensure they have fresh food and
+                              water, administer any necessary medications, and
+                              provide companionship and cuddles.
+                            </p>
+                          )}
+                          {serviceType === "dog_grooming" && (
+                            <p>
+                              Bathing: We use only the finest pet-friendly
+                              shampoos and conditioners to cleanse your pet's
+                              coat thoroughly. Whether they need a simple bath
+                              or a medicated treatment, we've got you covered.
+                            </p>
+                          )}
+                          {serviceType === "dog_training" && (
+                            <p>
+                              Positive Reinforcement Techniques: At Pet-sitter,
+                              we believe in using positive reinforcement methods
+                              to encourage good behavior and build trust between
+                              you and your pet. Our trainers use treats, praise,
+                              and play to motivate your pet and make learning
+                              fun.
+                            </p>
+                          )}
+
+                          {serviceType === "dog_walking" && (
+                            <p>
+                              Flexible Scheduling: We understand that life can
+                              be busy, so we offer flexible scheduling options
+                              to accommodate your lifestyle. Whether you need
+                              daily walks, occasional outings, or weekend
+                              adventures, we've got you covered.
+                            </p>
+                          )}
+                          {serviceType === "dog_care" && (
+                            <p>
+                              Regular Exercise: Physical activity is essential
+                              for your pet's health and well-being. We'll take
+                              your dog for daily walks or playtime in the
+                              backyard to keep them active and stimulated. For
+                              cats, we'll engage them in interactive play
+                              sessions to satisfy their natural instincts.
+                            </p>
+                          )}
                         </div>
                       </div>
                       <div className="content-style-two">
                         <h3>Safety Standards are Included</h3>
                         <div className="text">
-                          <p>
-                            Vestibulum ante ipsum primis in faucibus orci luctus
-                            et ultrices posuere id cubilia Curae; Maecenas nec
-                            tellus vehicula lorem ultricies condimentum. Sed
-                            consectetur urna eget et finibus posuere. Sed tempus
-                            orci erat, sit amet pretium lorem tincidunt eget.
-                            Maecenas porta risus on neque rhoncus, sed pharetra
-                            diam vulputate. Nunc in ligula vel sem porttitor
-                            consequat. Ut porttitor non ante at bibendum.
-                            Praesent posuere turpis lacus, vel tempor felis
-                            eleifend eu. Morbi velit odio, pulvinar vel ligula
-                            donec, consectetur faucibus elit.
-                          </p>
+                          {serviceType === "dog_grooming" && (
+                            <p>
+                              Brushing and Detangling: To keep your pet's coat
+                              shiny and healthy, we'll gently brush out any
+                              tangles or mats, removing loose fur and minimizing
+                              shedding
+                            </p>
+                          )}
+                          {serviceType === "dog_training" && (
+                            <p>
+                              Basic Obedience Commands: We'll teach your pet
+                              essential obedience commands such as sit, stay,
+                              come, heel, and down, using gentle and effective
+                              training techniques. These commands form the
+                              foundation of good behavior and are essential for
+                              your pet's safety and well-being.
+                            </p>
+                          )}
+                          {serviceType === "dog_walking" && (
+                            <p>
+                              Safe Transportation: If your pet needs
+                              transportation to their favorite walking spot, we
+                              provide safe and comfortable rides in our
+                              pet-friendly vehicles equipped with all the
+                              necessary safety measures.
+                            </p>
+                          )}
+
+                          {serviceType === "dog_care" && (
+                            <p>
+                              Customized Feeding: We understand that every pet
+                              has unique dietary needs and preferences. Whether
+                              your pet requires a special diet, medication
+                              administration, or simply their favorite treats,
+                              we'll follow your instructions to ensure they
+                              receive proper nutrition and hydration.
+                            </p>
+                          )}
                         </div>
                         <div className="image-box">
                           <div className="row">
@@ -132,7 +216,7 @@ function PetGromming() {
                                 />
                                 <div className="icon-box">
                                   <a
-                                    href=""
+                                    href="images/resource/service-details-3.jpg"
                                     className="lightbox-image"
                                     data-fancybox="gallery"
                                   >
@@ -161,34 +245,22 @@ function PetGromming() {
                       <div className="widget-content">
                         <ul className="category-list">
                           <li className="active">
-                            <a href="">
-                              Pets Full Grooming
-                            </a>
+                            <a href="">Pets Full Grooming</a>
                           </li>
                           <li>
-                            <a href="">
-                              Regular Health Checkups
-                            </a>
+                            <a href="">Regular Health Checkups</a>
                           </li>
                           <li>
-                            <a href="">
-                              Styling Your Pets
-                            </a>
+                            <a href="">Styling Your Pets</a>
                           </li>
                           <li>
-                            <a href="">
-                              Bath, Dry &amp; Brush
-                            </a>
+                            <a href="">Bath, Dry &amp; Brush</a>
                           </li>
                           <li>
-                            <a href=" ">
-                              Pets Cleaning &amp; Plucking
-                            </a>
-                          </li> 
-                          <li>    
-                            <a href="">
-                              Coat Handler Pets
-                            </a>
+                            <a href=" ">Pets Cleaning &amp; Plucking</a>
+                          </li>
+                          <li>
+                            <a href="">Coat Handler Pets</a>
                           </li>
                         </ul>
                       </div>

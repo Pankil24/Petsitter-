@@ -200,7 +200,11 @@ function Register() {
                     if (result?.status === 200) {
                       localStorage.setItem("userName", values?.userName);
                       localStorage.setItem("userType", values?.userType);
-                      navigate("/home");
+                      if (values?.userType === "admin") {
+                        navigate("/admin");
+                      } else {
+                        navigate("/home");
+                      }
                     } else {
                       Swal.fire({
                         icon: "error",
@@ -212,7 +216,6 @@ function Register() {
                 >
                   {({ values, setFieldValue, handleChange, errors }) => (
                     <Form>
-                      
                       <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
                           <input
